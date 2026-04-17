@@ -1,486 +1,416 @@
 <!DOCTYPE html>
 <html lang="cs">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <meta name="theme-color" content="#2d4a3e" />
-  <meta name="description" content="Průvodce pro rodiče — sexualita u dětí podle věku" />
-  <meta name="apple-mobile-web-app-capable" content="yes" />
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-  <meta name="apple-mobile-web-app-title" content="Průvodce rodiče" />
-  <link rel="manifest" href="manifest.json" />
-  <link rel="apple-touch-icon" href="icons/icon-192.png" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet" />
-  <title>Sexualita u dětí — Průvodce pro rodiče</title>
-  <style>
-    :root {
-      --green-dark: #2d4a3e;
-      --green-mid:  #1e3529;
-      --green-light: #e8f2ed;
-      --amber:      #c8860a;
-      --amber-light: #fff5e8;
-      --cream:      #faf7f4;
-      --white:      #ffffff;
-      --border:     #ede8e0;
-      --text:       #1a2820;
-      --muted:      #7a7068;
-      --serif:      'Lora', Georgia, serif;
-      --sans:       'Source Sans 3', sans-serif;
-      --safe-top: env(safe-area-inset-top, 0px);
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#2d4a3e">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Průvodce rodiče">
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="icons/icon-192.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet">
+<title>Sexualita u dětí — Průvodce pro rodiče</title>
+<style>
+:root {
+  --g: #2d4a3e;
+  --gd: #1e3529;
+  --gl: #e8f2ed;
+  --am: #c8860a;
+  --al: #fff5e8;
+  --cr: #faf7f4;
+  --bd: #ede8e0;
+  --tx: #1a2820;
+  --mu: #7a7068;
+  --sf: 'Lora', Georgia, serif;
+  --ss: 'Source Sans 3', sans-serif;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  background: var(--cr);
+  font-family: var(--sf);
+  min-height: 100dvh;
+}
+.hdr {
+  background: linear-gradient(160deg, var(--g) 0%, var(--gd) 100%);
+  padding: calc(24px + env(safe-area-inset-top,0px)) 24px 28px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.hdr::before {
+  content:''; position:absolute; border-radius:50%;
+  background:rgba(255,255,255,.04); pointer-events:none;
+  width:220px; height:220px; top:-70px; right:-60px;
+}
+.hdr-badge {
+  display:inline-block; background:rgba(255,255,255,.1);
+  border-radius:50px; padding:4px 16px;
+  font-family:var(--ss); font-size:10px; font-weight:600;
+  letter-spacing:3px; text-transform:uppercase;
+  color:rgba(255,255,255,.6); margin-bottom:14px;
+}
+.hdr h1 {
+  font-family:var(--sf); font-size:clamp(22px,5vw,28px);
+  font-weight:400; color:#f5f0ea; letter-spacing:.5px;
+}
+.hdr p {
+  margin-top:8px; font-family:var(--sf); font-style:italic;
+  font-size:14px; color:rgba(245,240,234,.6);
+}
+.wrap { max-width:680px; margin:0 auto; padding:20px 14px 60px; }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+.card {
+  background:#fff; border-radius:16px; border:1px solid var(--bd);
+  box-shadow:0 2px 16px rgba(0,0,0,.055); padding:20px; margin-bottom:14px;
+}
+.lbl {
+  font-family:var(--ss); font-size:10px; font-weight:600;
+  letter-spacing:2.5px; text-transform:uppercase; color:#b0a898; margin-bottom:14px;
+}
 
-    html { scroll-behavior: smooth; }
+/* Age buttons */
+.age-grid { display:flex; flex-wrap:wrap; gap:8px; }
+.age-btn {
+  display:flex; align-items:center; gap:7px;
+  padding:9px 16px; border-radius:50px;
+  border:2px solid var(--bd); background:var(--cr);
+  color:#4a3f35; cursor:pointer;
+  font-family:var(--ss); font-size:14px; font-weight:400;
+  transition:all .25s cubic-bezier(.34,1.56,.64,1);
+  -webkit-tap-highlight-color:transparent;
+  user-select:none;
+}
+.age-btn:active { transform:scale(.96); }
+.age-btn.on {
+  border-color:var(--g); background:var(--g);
+  color:#f5f0ea; font-weight:600;
+  box-shadow:0 4px 14px rgba(45,74,62,.3);
+}
 
-    body {
-      background: var(--cream);
-      font-family: var(--serif);
-      min-height: 100vh;
-      min-height: 100dvh;
-      overscroll-behavior: none;
-    }
+/* Topic banner */
+.topic {
+  background:linear-gradient(135deg,var(--g) 0%,var(--gd) 100%);
+  border-radius:16px; padding:20px 22px; margin-bottom:14px;
+  color:#fff; position:relative; overflow:hidden;
+}
+.topic::after {
+  content:''; position:absolute; top:-30px; right:-30px;
+  width:120px; height:120px; border-radius:50%;
+  background:rgba(255,255,255,.04); pointer-events:none;
+}
+.topic .lbl { color:rgba(255,255,255,.5); margin-bottom:10px; }
+.topic p { font-family:var(--sf); font-size:15px; line-height:1.75; color:rgba(255,255,255,.92); }
 
-    /* ── HEADER ── */
-    .header {
-      background: linear-gradient(160deg, var(--green-dark) 0%, var(--green-mid) 100%);
-      padding: calc(24px + var(--safe-top)) 24px 28px;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-    .header::before, .header::after {
-      content: '';
-      position: absolute;
-      border-radius: 50%;
-      background: rgba(255,255,255,0.04);
-      pointer-events: none;
-    }
-    .header::before { width: 220px; height: 220px; top: -70px; right: -60px; }
-    .header::after  { width: 150px; height: 150px; bottom: -50px; left: -40px; }
+/* Tabs */
+.tabs {
+  display:flex; gap:5px; background:#fff;
+  border-radius:14px; border:1px solid var(--bd);
+  padding:6px; margin-bottom:14px;
+  box-shadow:0 2px 12px rgba(0,0,0,.05);
+}
+.tab {
+  flex:1; display:flex; flex-direction:column;
+  align-items:center; gap:3px; padding:9px 4px;
+  border-radius:10px; border:none; background:transparent;
+  color:#9a9088; cursor:pointer;
+  font-family:var(--ss); font-size:11px; font-weight:400;
+  transition:all .2s; -webkit-tap-highlight-color:transparent;
+  user-select:none; line-height:1.2;
+}
+.tab .ti { font-size:17px; }
+.tab:active { background:#f5f0ea; }
+.tab.on { background:var(--g); color:#fff; font-weight:600; box-shadow:0 2px 10px rgba(45,74,62,.25); }
 
-    .header-badge {
-      display: inline-block;
-      background: rgba(255,255,255,0.1);
-      border-radius: 50px;
-      padding: 4px 16px;
-      font-family: var(--sans);
-      font-size: 10px;
-      font-weight: 600;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.6);
-      margin-bottom: 14px;
-    }
-    .header h1 {
-      font-family: var(--serif);
-      font-size: clamp(24px, 6vw, 30px);
-      font-weight: 400;
-      color: #f5f0ea;
-      letter-spacing: 0.5px;
-      line-height: 1.3;
-    }
-    .header p {
-      margin-top: 8px;
-      font-family: var(--serif);
-      font-style: italic;
-      font-size: 14px;
-      color: rgba(245,240,234,0.6);
-    }
+/* Panels */
+.panel { display:none; }
+.panel.on { display:block; }
 
-    /* ── LAYOUT ── */
-    .container {
-      max-width: 680px;
-      margin: 0 auto;
-      padding: 24px 14px 60px;
-    }
+/* Veta cards */
+.veta {
+  background:#fff; border-radius:14px; padding:16px 18px;
+  margin-bottom:10px; border:1px solid var(--bd);
+  border-left:3px solid var(--g);
+  box-shadow:0 2px 10px rgba(0,0,0,.05);
+}
+.veta-q { font-family:var(--sf); font-style:italic; font-size:15px; color:var(--tx); line-height:1.65; margin-bottom:8px; }
+.veta-k { font-family:var(--ss); font-size:12.5px; color:#9a9088; line-height:1.5; display:flex; gap:5px; }
+.veta-k::before { content:'→'; flex-shrink:0; }
 
-    /* ── CARDS ── */
-    .card {
-      background: var(--white);
-      border-radius: 16px;
-      border: 1px solid var(--border);
-      box-shadow: 0 2px 16px rgba(0,0,0,0.055);
-      padding: 20px 20px 18px;
-      margin-bottom: 14px;
-    }
+/* Pozor */
+.pozor {
+  background:#fff; border-radius:14px; padding:22px;
+  border:1px solid var(--bd); border-left:3px solid var(--am);
+  box-shadow:0 2px 10px rgba(0,0,0,.05);
+}
+.pozor-h { display:flex; align-items:center; gap:8px; margin-bottom:14px; }
+.pozor-h .lbl { margin-bottom:0; color:var(--am); }
+.pozor p { font-family:var(--sf); font-size:15px; line-height:1.8; color:#2a2018; }
 
-    .label {
-      font-family: var(--sans);
-      font-size: 10px;
-      font-weight: 600;
-      letter-spacing: 2.5px;
-      text-transform: uppercase;
-      color: #b0a898;
-      margin-bottom: 14px;
-    }
+/* Knihy */
+.kniha {
+  background:#fff; border-radius:14px; padding:14px 18px;
+  margin-bottom:10px; display:flex; gap:14px; align-items:flex-start;
+  border:1px solid var(--bd); box-shadow:0 2px 10px rgba(0,0,0,.05);
+}
+.kniha-ico {
+  width:42px; height:42px; border-radius:10px; flex-shrink:0;
+  background:linear-gradient(135deg,var(--g),var(--gd));
+  display:flex; align-items:center; justify-content:center; font-size:20px;
+}
+.kniha-n { font-family:var(--sf); font-weight:600; font-size:14px; color:var(--tx); margin-bottom:4px; }
+.kniha-p { font-family:var(--ss); font-size:13px; color:var(--mu); line-height:1.55; }
 
-    /* ── AGE BUTTONS ── */
-    .age-grid {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-    .age-btn {
-      display: flex;
-      align-items: center;
-      gap: 7px;
-      padding: 9px 16px;
-      border-radius: 50px;
-      border: 2px solid var(--border);
-      background: var(--cream);
-      color: #4a3f35;
-      cursor: pointer;
-      font-family: var(--sans);
-      font-size: 14px;
-      font-weight: 400;
-      transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
-      -webkit-tap-highlight-color: transparent;
-    }
-    .age-btn:hover { transform: translateY(-2px); border-color: #c0b8b0; }
-    .age-btn.active {
-      border-color: var(--green-dark);
-      background: var(--green-dark);
-      color: #f5f0ea;
-      font-weight: 600;
-      box-shadow: 0 4px 14px rgba(45,74,62,0.3);
-    }
-    .age-btn .emoji { font-size: 16px; }
+/* List */
+.listcard { background:#fff; border-radius:14px; padding:22px; border:1px solid var(--bd); box-shadow:0 2px 10px rgba(0,0,0,.05); }
+.listcard .lbl { color:var(--g); margin-bottom:12px; }
+.listcard p { font-family:var(--sf); font-size:15px; line-height:1.75; color:#2a2018; margin-bottom:16px; }
+.list-note { background:linear-gradient(135deg,#f0f7f4,var(--gl)); border-radius:10px; padding:13px 15px; font-family:var(--ss); font-size:13px; color:var(--g); line-height:1.6; border:1px solid #c8e0d5; }
 
-    /* ── TOPIC CARD ── */
-    .topic-card {
-      background: linear-gradient(135deg, var(--green-dark) 0%, var(--green-mid) 100%);
-      border-radius: 16px;
-      padding: 22px 22px;
-      margin-bottom: 14px;
-      color: white;
-      position: relative;
-      overflow: hidden;
-    }
-    .topic-card::after {
-      content: '';
-      position: absolute;
-      top: -30px; right: -30px;
-      width: 120px; height: 120px;
-      border-radius: 50%;
-      background: rgba(255,255,255,0.04);
-      pointer-events: none;
-    }
-    .topic-card .label { color: rgba(255,255,255,0.5); margin-bottom: 10px; }
-    .topic-card p {
-      font-family: var(--serif);
-      font-size: 15px;
-      line-height: 1.75;
-      color: rgba(255,255,255,0.92);
-    }
+/* Quote */
+.quote { background:linear-gradient(135deg,#fffaf4,var(--al)); border-radius:14px; padding:20px 22px; margin-top:14px; border:1px solid #e8d8b8; text-align:center; }
+.quote .lbl { color:var(--am); margin-bottom:10px; }
+.quote p { font-family:var(--sf); font-style:italic; font-size:15px; line-height:1.75; color:#6a4010; }
 
-    /* ── TABS ── */
-    .tabs {
-      display: flex;
-      gap: 5px;
-      background: var(--white);
-      border-radius: 14px;
-      border: 1px solid var(--border);
-      padding: 6px;
-      margin-bottom: 14px;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.05);
-    }
-    .tab-btn {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 3px;
-      padding: 9px 6px;
-      border-radius: 10px;
-      border: none;
-      background: transparent;
-      color: #9a9088;
-      cursor: pointer;
-      font-family: var(--sans);
-      font-size: 11px;
-      font-weight: 400;
-      transition: all 0.2s ease;
-      -webkit-tap-highlight-color: transparent;
-      line-height: 1.2;
-    }
-    .tab-btn .tab-icon { font-size: 18px; }
-    .tab-btn:hover { background: #f5f0ea; color: #4a3f35; }
-    .tab-btn.active {
-      background: var(--green-dark);
-      color: white;
-      font-weight: 600;
-      box-shadow: 0 2px 10px rgba(45,74,62,0.25);
-    }
+/* Empty */
+.empty { text-align:center; padding:52px 24px; color:#c0b8b0; font-family:var(--sf); font-style:italic; font-size:15px; line-height:1.9; }
+.empty .big { font-size:44px; margin-bottom:18px; }
 
-    /* ── PANEL: JAK MLUVIT ── */
-    .veta-card {
-      background: var(--white);
-      border-radius: 14px;
-      padding: 17px 18px;
-      margin-bottom: 10px;
-      border: 1px solid var(--border);
-      border-left: 3px solid var(--green-dark);
-      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-    .veta-card:hover {
-      transform: translateX(3px);
-      box-shadow: 0 4px 20px rgba(0,0,0,0.09);
-    }
-    .veta-text {
-      font-family: var(--serif);
-      font-style: italic;
-      font-size: 15px;
-      color: var(--text);
-      line-height: 1.65;
-      margin-bottom: 9px;
-    }
-    .veta-kontext {
-      font-family: var(--sans);
-      font-size: 12.5px;
-      color: #9a9088;
-      line-height: 1.5;
-      display: flex;
-      gap: 5px;
-    }
-    .veta-kontext::before { content: '→'; flex-shrink: 0; }
+footer { text-align:center; margin-top:36px; padding:16px; font-family:var(--ss); font-size:11px; color:#c8c0b8; border-top:1px solid var(--bd); letter-spacing:1px; }
 
-    /* ── PANEL: POZOR ── */
-    .pozor-card {
-      background: var(--white);
-      border-radius: 14px;
-      padding: 22px;
-      border: 1px solid var(--border);
-      border-left: 3px solid var(--amber);
-      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-    }
-    .pozor-header {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      margin-bottom: 14px;
-    }
-    .pozor-header .label { margin-bottom: 0; color: var(--amber); }
-    .pozor-card p {
-      font-family: var(--serif);
-      font-size: 15px;
-      line-height: 1.8;
-      color: #2a2018;
-    }
-
-    /* ── PANEL: KNIHY ── */
-    .kniha-card {
-      background: var(--white);
-      border-radius: 14px;
-      padding: 15px 18px;
-      margin-bottom: 10px;
-      display: flex;
-      gap: 14px;
-      align-items: flex-start;
-      border: 1px solid var(--border);
-      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-      transition: box-shadow 0.2s ease;
-    }
-    .kniha-card:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.09); }
-    .kniha-icon {
-      width: 44px; height: 44px;
-      border-radius: 10px;
-      background: linear-gradient(135deg, var(--green-dark), var(--green-mid));
-      display: flex; align-items: center; justify-content: center;
-      font-size: 22px;
-      flex-shrink: 0;
-    }
-    .kniha-nazev {
-      font-family: var(--serif);
-      font-weight: 600;
-      font-size: 14.5px;
-      color: var(--text);
-      margin-bottom: 4px;
-    }
-    .kniha-popis {
-      font-family: var(--sans);
-      font-size: 13px;
-      color: var(--muted);
-      line-height: 1.55;
-    }
-
-    /* ── PANEL: PRACOVNÍ LIST ── */
-    .list-card {
-      background: var(--white);
-      border-radius: 14px;
-      padding: 22px;
-      border: 1px solid var(--border);
-      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-    }
-    .list-card .label { color: var(--green-dark); margin-bottom: 12px; }
-    .list-card p {
-      font-family: var(--serif);
-      font-size: 15px;
-      line-height: 1.75;
-      color: #2a2018;
-      margin-bottom: 16px;
-    }
-    .list-note {
-      background: linear-gradient(135deg, #f0f7f4, #e8f2ed);
-      border-radius: 10px;
-      padding: 13px 15px;
-      font-family: var(--sans);
-      font-size: 13px;
-      color: var(--green-dark);
-      line-height: 1.6;
-      border: 1px solid #c8e0d5;
-    }
-
-    /* ── ZÁPATÍ CITÁT ── */
-    .quote-card {
-      background: linear-gradient(135deg, #fffaf4, var(--amber-light));
-      border-radius: 14px;
-      padding: 20px 22px;
-      margin-top: 14px;
-      border: 1px solid #e8d8b8;
-      text-align: center;
-    }
-    .quote-card .label { color: var(--amber); margin-bottom: 10px; }
-    .quote-card p {
-      font-family: var(--serif);
-      font-style: italic;
-      font-size: 15px;
-      line-height: 1.75;
-      color: #6a4010;
-    }
-
-    /* ── EMPTY STATE ── */
-    .empty {
-      text-align: center;
-      padding: 52px 24px;
-      color: #c0b8b0;
-      font-family: var(--serif);
-      font-style: italic;
-      font-size: 15px;
-      line-height: 1.9;
-    }
-    .empty .big { font-size: 44px; margin-bottom: 18px; }
-
-    /* ── FOOTER ── */
-    footer {
-      text-align: center;
-      margin-top: 36px;
-      padding: 16px;
-      font-family: var(--sans);
-      font-size: 11px;
-      color: #c8c0b8;
-      border-top: 1px solid var(--border);
-      letter-spacing: 1px;
-    }
-
-    /* ── ANIMATIONS ── */
-    .fade-in {
-      animation: fadeUp 0.35s cubic-bezier(0.22, 1, 0.36, 1) both;
-    }
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(14px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-
-    /* ── PANEL VISIBILITY ── */
-    .panel { display: none; }
-    .panel.active { display: block; }
-
-    /* ── INSTALL BANNER ── */
-    #install-banner {
-      position: fixed;
-      bottom: 0; left: 0; right: 0;
-      background: var(--green-dark);
-      color: white;
-      padding: 14px 18px calc(14px + env(safe-area-inset-bottom, 0px));
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      z-index: 100;
-      box-shadow: 0 -4px 20px rgba(0,0,0,0.2);
-      transform: translateY(110%);
-      transition: transform 0.3s ease;
-      pointer-events: none;
-    }
-    #install-banner.show {
-      transform: translateY(0);
-      pointer-events: auto;
-    }
-    #install-banner p {
-      font-family: var(--sans);
-      font-size: 13px;
-      line-height: 1.4;
-      flex: 1;
-    }
-    #install-banner strong { font-weight: 600; }
-    .install-actions { display: flex; gap: 8px; }
-    .btn-install {
-      background: white;
-      color: var(--green-dark);
-      border: none;
-      border-radius: 8px;
-      padding: 8px 14px;
-      font-family: var(--sans);
-      font-size: 13px;
-      font-weight: 600;
-      cursor: pointer;
-      white-space: nowrap;
-    }
-    .btn-dismiss {
-      background: rgba(255,255,255,0.15);
-      color: white;
-      border: none;
-      border-radius: 8px;
-      padding: 8px 10px;
-      font-family: var(--sans);
-      font-size: 13px;
-      cursor: pointer;
-    }
-  </style>
+.fadein { animation:fu .35s cubic-bezier(.22,1,.36,1) both; }
+@keyframes fu { from{opacity:0;transform:translateY(14px)} to{opacity:1;transform:translateY(0)} }
+</style>
 </head>
 <body>
 
-  <!-- HEADER -->
-  <header class="header">
-    <div class="header-badge">Průvodce pro rodiče</div>
-    <h1>Sexualita u dětí</h1>
-    <p>Rozcestník informací podle věku</p>
-  </header>
+<header class="hdr">
+  <div class="hdr-badge">Průvodce pro rodiče</div>
+  <h1>Sexualita u dětí</h1>
+  <p>Rozcestník informací podle věku</p>
+</header>
 
-  <div class="container">
+<div class="wrap">
+  <div class="card">
+    <div class="lbl">Věk mého dítěte</div>
+    <div class="age-grid" id="ageGrid"></div>
+  </div>
 
-    <!-- VĚK -->
-    <div class="card">
-      <div class="label">Věk mého dítěte</div>
-      <div class="age-grid" id="age-grid"></div>
-    </div>
-
-    <!-- OBSAH -->
-    <div id="content"></div>
-
-    <!-- EMPTY STATE -->
-    <div class="empty" id="empty">
+  <div id="mainContent">
+    <div class="empty">
       <div class="big">👆</div>
-      Vyber věk svého dítěte<br />a získej konkrétní tipy a doporučení.
-    </div>
-
-    <footer>Průvodce vznikl jako součást besedy pro rodiče</footer>
-  </div>
-
-  <!-- INSTALL BANNER -->
-  <div id="install-banner">
-    <p><strong>Přidat na plochu</strong><br>Používejte jako appku offline</p>
-    <div class="install-actions">
-      <button class="btn-dismiss" id="btn-dismiss">✕</button>
-      <button class="btn-install" id="btn-install">Instalovat</button>
+      Vyber věk svého dítěte<br>a získej konkrétní tipy a doporučení.
     </div>
   </div>
 
-  <script src="app.js" defer></script>
+  <footer>Průvodce vznikl jako součást besedy pro rodiče</footer>
+</div>
+
+<script>
+var DATA = {
+  "2-4": {
+    label: "2\u20134 roky", emoji: "\uD83C\uDF31",
+    co_resi: "D\xedt\u011b objevuje sv\xe9 t\u011blo, zaj\xedm\xe1 se o t\u011bla ostatn\xedch (sourozenec, rodi\u010d). Za\u010d\xedn\xe1 si uv\u011bdomovat rozd\xedly mezi pohlav\xedmi. M\u016f\u017ee sahat na genit\xe1lie \u2014 to je norm\xe1ln\xed v\xfdzkum, ne sexu\xe1ln\xed chov\xe1n\xed.",
+    jak_mluvit: [
+      { veta: "\u201eTo jsou tvoje soukrom\xe9 \u010d\xe1sti. Pat\u0159\xed jen tob\u011b.\u201c", kontext: "Kdy\u017e d\xedt\u011b sah\xe1 na sebe nebo na jin\xe9." },
+      { veta: "\u201eT\u017dhle se d\u011bl\xe1 jen v soukrom\xed, v pokoji\u010dku \u2014 ne u stolu nebo ve \u0161kolce.\u201c", kontext: "Bez dramatizace, klidn\xfdm t\xf3nem." },
+      { veta: "\u201eT\u017f se jmenuje penis\u00a0/\u00a0vulva.\u201c", kontext: "P\u0159i koup\xe1n\xed nebo obl\xe9k\xe1n\xed \u2014 prost\u011b a p\u0159irozen\u011b." }
+    ],
+    pozor: "Nikdy se nesm\u011bj ani nezahanbuj. Z\xe1jem o t\u011blo je p\u0159irozen\xfd. Tv\xe1 reakce nastav\xed, zda za tebou d\xedt\u011b p\u0159ijde i p\u0159\xed\u0161t\u011b.",
+    knihy: [
+      { nazev: "Kde bydl\xedm? (Robie Harris)", popis: "Kr\xe1sn\u011b ilustrovan\xe1 kn\xed\u017eka o t\u011ble pro nejmen\u0161\xed." },
+      { nazev: "Jak se d\u011blaj\xed d\u011bti (Babette Cole)", popis: "Hrav\u011b a s humorem \u2014 dobr\xe9 pro prvn\xed ot\xe1zky." }
+    ],
+    pracovni_list: "Pojmenuj \u010d\xe1sti t\u011bla \u2014 obr\xe1zek pro d\u011bti 2\u20134 roky s prostorem pro dopln\u011bn\xed spr\xe1vn\xfdch n\xe1zv\u016f."
+  },
+  "4-6": {
+    label: "4\u20136 let", emoji: "\uD83C\uDF3F",
+    co_resi: "P\u0159ich\xe1zej\xed prvn\xed ot\xe1zky: Odkud jsem p\u0159i\u0161el/a? Pro\u010d m\xe1 br\xe1cha jin\xe9 t\u011blo? Z\xe1jem o t\u011bhotenstv\xed, porod. Hra na doktory je norm\xe1ln\xed \u2014 pokud nen\xed nucen\xe1 nebo tajn\xe1.",
+    jak_mluvit: [
+      { veta: "\u201eKdy\u017e se mami a tati maj\xed r\xe1di, mohou si b\xfdt velmi bl\xedzko. Z t\xe9 l\xe1sky m\u016f\u017ee v b\u0159\xed\u0161ku vyr\u016fst miminko.\u201c", kontext: "Na ot\xe1zku odkud se berou d\u011bti \u2014 pravdiv\u011b a jednodu\u0161e." },
+      { veta: "\u201eD\xedvky maj\xed vulvu a vag\xednu, chlapci maj\xed penis a varlata. To je p\u0159irozen\xe9.\u201c", kontext: "Na ot\xe1zku pro\u010d jsme jin\xed \u2014 bez tajemstv\xed." },
+      { veta: "\u201ePokud t\u011b n\u011bkdo \u017e\xe1d\xe1 d\u011blat v\u011bci s t\u011blem a m\xe1 to b\xfdt tajemstv\xed \u2014 p\u0159ij\u010f za mnou.\u201c", kontext: "Z\xe1klad bezpe\u010dnostn\xedho pravidla." }
+    ],
+    pozor: "Hra na doktory je norm\xe1ln\xed zv\u011bdavost. Zak\xe1zat ji ost\u0159e m\u016f\u017ee vyvolat pocit hanby. Lep\u0161\xed je klidn\u011b nastavit pravidla: bez bolesti, bez nucen\xed.",
+    knihy: [
+      { nazev: "Jak se d\u011blaj\xed d\u011bti (Robie Harris, 4\u20138 let)", popis: "Odpov\xedd\xe1 p\u0159esn\u011b na ot\xe1zky tohoto v\u011bku." },
+      { nazev: "Moje t\u011blo pat\u0159\xed mn\u011b (Jill Starishevsky)", popis: "O bezpe\u010d\xed t\u011bla a bezpe\u010dn\xfdch tajemstv\xedch." }
+    ],
+    pracovni_list: "Poh\xe1dkov\xfd p\u0159\xedb\u011bh o mimince v b\u0159\xed\u0161ku \u2014 s m\xedstem pro vlastn\xed kresbu a ot\xe1zkami k pov\xefd\xe1n\xed."
+  },
+  "6-8": {
+    label: "6\u20138 let", emoji: "\uD83C\uDF33",
+    co_resi: "D\xedt\u011b p\u0159ich\xe1z\xed se zpr\xe1vami od spolu\u017e\xe1k\u016f \u2014 mnohdy nep\u0159esn\xfdmi. M\u016f\u017ee narazit na nevhodn\xfd obsah online. Za\u010d\xedn\xe1 ch\xe1pat soukrom\xed a intimn\xed z\xf3nu. Z\xe1jem o romantick\xe9 vztahy (filmy, poh\xe1dky).",
+    jak_mluvit: [
+      { veta: "\u201eSly\u0161el/a jsi od kamar\xe1d\u016f n\u011bco o tomhle? \u0158ekni mi, co sis myslel/a.\u201c", kontext: "Otev\u0159\xedt t\xe9ma p\u0159irozen\u011b, bez v\xfdslechu." },
+      { veta: "\u201ePokud na internetu uvid\xed\u0161 n\u011bco divn\xe9ho nebo nep\u0159\xedjemn\xe9ho \u2014 p\u0159ij\u010f za mnou. Nezlob\xedm se, i kdyby to bylo divn\xe9.\u201c", kontext: "Preventivn\u011b, bez zakazov\xe1n\xed." },
+      { veta: "\u201eSpr\xe1vn\xe9 a bezpe\u010dn\xe9 objeti je takov\xe9, kdy ob\u011b strany cht\u011bj\xed.\u201c", kontext: "O souhlasu \u2014 srozumiteln\u011b pro tento v\u011bk." }
+    ],
+    pozor: "Toto je kl\xed\u010dov\xe9 v\u011bkov\xe9 okno pro prevenci. D\xedt\u011b je\u0161t\u011b v\u011b\u0159\xed rodi\u010d\u016fm v\xedce ne\u017e vrstevn\xedk\u016fm. Za 2\u20133 roky se to oto\u010d\xed.",
+    knihy: [
+      { nazev: "Velk\xe1 kniha o t\u011ble (DK)", popis: "V\u011bdeck\u011b p\u0159esn\xe1, hrav\xe1 \u2014 pro zv\xeddav\xe9 d\u011bti." },
+      { nazev: "Co se d\u011bje s m\xfdm t\u011blem (Lynda Madaras)", popis: "Verze pro d\xedvky i pro chlapce, velmi p\u0159\xedstupn\xe1." }
+    ],
+    pracovni_list: "Bezpe\u010dn\xe9 a nebezpe\u010dn\xe9 situace \u2014 komiksov\xfd pracovn\xed list pro rozpozn\xe1n\xed hranic."
+  },
+  "9-11": {
+    label: "9\u201311 let", emoji: "\uD83C\uDFF5\uFE0F",
+    co_resi: "T\u011blesn\xe9 zm\u011bny \u2014 puberta se bl\xed\u017e\xed nebo za\u010d\xedn\xe1. Z\xe1jem o romantiku, prvn\xed l\xe1sky. Intenzivn\xed pot\u0159eba soukrom\xed. D\xedvky se mohou pt\xe1t na menstruaci, chlapci na no\u010dn\xed poluce a erekce.",
+    jak_mluvit: [
+      { veta: "\u201eChci ti \u0159\xedct o zm\u011bn\xe1ch, kter\xe9 p\u0159ijdou, d\u0159\xedv ne\u017e p\u0159ijdou \u2014 abys nebyla/nebyl zaskocen/a.\u201c", kontext: "Proaktivn\u011b \u2014 ne \u010dekat na ot\xe1zky." },
+      { veta: "\u201eMenstruace je znamen\xed, \u017ee tvoje t\u011blo dosp\xedv\xe1. Je to norm\xe1ln\xed a dobr\xe9.\u201c", kontext: "Bez trapnosti, v\u011bcn\u011b." },
+      { veta: "\u201eChlapci m\xedv\xe1 erekce nebo no\u010dn\xed poluce \u2014 to je p\u0159irozen\xe1 sou\u010d\xe1st dosp\xedv\xe1n\xed.\u201c", kontext: "Preventivn\u011b, ne\u017e se to stane." }
+    ],
+    pozor: "D\xedt\u011b pot\u0159ebuje soukrom\xed \u2014 a z\xe1rove\u0148 v\xed, \u017ee m\u016f\u017ee p\u0159ij\xedt. Tyto dv\u011b v\u011bci nejsou v rozporu. Nab\xeddn\xf3, neku\u010d se.",
+    knihy: [
+      { nazev: "Puberta (Anke Napp)", popis: "Pro 8\u201312 let, v\u011bcn\xe1, hezky ilustrovan\xe1, bez p\xe1tosu." },
+      { nazev: "Hol\u010di\u010d\xed pr\u016fvodce pubertou (American Girl)", popis: "Velmi obl\xedben\xe1 u d\xedvek." }
+    ],
+    pracovni_list: "Den\xedk zm\u011bn \u2014 soukrom\xfd arch pro sledov\xe1n\xed fyzick\xfdch a emo\u010dn\xedch zm\u011bn s pr\u016fvodn\xedmi ot\xe1zkami."
+  },
+  "12-14": {
+    label: "12\u201314 let", emoji: "\uD83C\uDF38",
+    co_resi: "Vztahy, prvn\xed polibky a intimn\xed z\xe1jmy. Pornografie \u2014 valn\xe1 v\u011bt\u0161ina d\u011bt\xed ji v tomto v\u011bku vid\xed. Identita, orientace. Tlak vrstevn\xedk\u016f. Online bezpe\u010d\xed. Souhlas a hranice v re\xe1ln\xfdch vztaz\xedch.",
+    jak_mluvit: [
+      { veta: "\u201eHodn\u011b d\u011bt\xed v tv\xe9m v\u011bku narazilo na pornografii. Chci ti \u0159\xedct, jak to doopravdy funguje mezi lidmi \u2014 je to jin\xe9.\u201c", kontext: "Bez obvi\u0148ov\xe1n\xed \u2014 prevence dezinformac\xed." },
+      { veta: "\u201ePokud by t\u011b n\u011bkdo tla\u010dil do n\u011b\u010deho, co nechce\u0161 \u2014 i kamar\xe1d nebo partner \u2014 je to \u0161patn\u011b. A mn\u011b to m\u016f\u017ee\u0161 \u0159\xedt.\u201c", kontext: "O souhlasu v konkr\xe9tn\xedch situac\xedch." },
+      { veta: "\u201eNikdy se t\u011b na nic nept\xe1m, co ti nevad\xed \u0159\xedt. Ale jsem tady, kdy\u017e bude\u0161 cht\xedt.\u201c", kontext: "Udr\u017eet p\u0159\xedtomnost bez tlaku." }
+    ],
+    pozor: "Nereaguj panikou na to, co se dovíš. Pokud teenageři vědí, že rodič zpanikuje, přestanou říkat pravdu.",
+    knihy: [
+      { nazev: "Amaze.org / YouTube kan\xe1l", popis: "Videa pro teenagery o vztaz\xedch, souhlasu, t\u011ble \u2014 kvalitn\xed, bez moralizov\xe1n\xed." },
+      { nazev: "Dan Siegel: Bou\u0159liv\xe1 l\xe9ta", popis: "Pro rodi\u010de \u2014 pro\u010d se teenage mozek chov\xe1 jak se chov\xe1." }
+    ],
+    pracovni_list: "Sc\xe9n\xe1\u0159e pro rozhodov\xe1n\xed \u2014 co bys d\u011blal/a kdybys\u2026 \u2014 karty pro rozhovor s teenagerem."
+  },
+  "15+": {
+    label: "15+ let", emoji: "\uD83E\uDD8B",
+    co_resi: "Aktivn\xed nebo bl\xed\u017e\xedc\xed se sexu\xe1ln\xed \u017eivot. Antikoncepce, STI prevence. Zdrav\xe9 vs. nezdrav\xe9 vztahy. Digit\xe1ln\xed stopy. Emo\u010dn\xed dopad intimn\xedch vztah\u016f.",
+    jak_mluvit: [
+      { veta: "\u201eA\u0165 se rozhodne\u0161 cokoliv \u2014 chci, aby ses c\xedtil/a bezpe\u010dn\u011b. Mluvit se mnou o antikoncepci nen\xed souhlas, \u017ee to schvaluju \u2014 je to starost o tebe.\u201c", kontext: "Otev\u0159\xedt t\xe9ma praktick\xe9 bezpe\u010dnosti." },
+      { veta: "\u201eZdrav\xfd vztah je takov\xfd, kde se oba c\xedt\xed svobodn\u011b \u0159\xedt ne nebo stop.\u201c", kontext: "O souhlasu v dosp\u011bl\xe9m smyslu." },
+      { veta: "\u201eNikdy nepo\u0161li intimn\xed fotky \u2014 ani partnerovi. Jednou poslan\xe9, nelze vz\xedt zp\u011bt.\u201c", kontext: "Prakticky a bez k\xe1z\xe1n\xed." }
+    ],
+    pozor: "V tomto v\u011bku je rodi\u010d pr\u016fvodce, ne hl\xedd\u010d. Pokud chce\u0161, aby se tv\xe9 d\xedt\u011b chovalo zodpov\u011bdn\u011b, mus\xed c\xedtit, \u017ee mu v\u011b\u0159\xed\u0161.",
+    knihy: [
+      { nazev: "Emily Nagoski: Jak funguje \u017eensk\xe1 sexualita", popis: "Pro star\u0161\xed d\xedvky a jejich maminky \u2014 pr\u016flomov\xe1." },
+      { nazev: "The Teenage Brain (Frances Jensen)", popis: "Pro rodi\u010de \u2014 v\u011bda o mozku teenagera." }
+    ],
+    pracovni_list: "Pr\u016fvodce zdrav\xfdmi vztahy \u2014 kontroln\xed seznam sign\xe1l\u016f zdrav\xe9ho a nezdrav\xe9ho vztahu."
+  }
+};
+
+var currentAge = null;
+var currentTab = "jak";
+
+function init() {
+  var grid = document.getElementById("ageGrid");
+  var keys = Object.keys(DATA);
+  for (var i = 0; i < keys.length; i++) {
+    (function(key) {
+      var d = DATA[key];
+      var btn = document.createElement("button");
+      btn.className = "age-btn";
+      btn.id = "age-" + key;
+      btn.innerHTML = '<span>' + d.emoji + '</span><span>' + d.label + '</span>';
+      btn.addEventListener("click", function() { selectAge(key); });
+      grid.appendChild(btn);
+    })(keys[i]);
+  }
+}
+
+function selectAge(key) {
+  // Remove active from all age buttons
+  var btns = document.querySelectorAll(".age-btn");
+  for (var i = 0; i < btns.length; i++) btns[i].classList.remove("on");
+  // Activate clicked
+  document.getElementById("age-" + key).classList.add("on");
+  currentAge = key;
+  currentTab = "jak";
+  renderContent();
+}
+
+function selectTab(tab) {
+  currentTab = tab;
+  // Update tab buttons
+  var tabs = document.querySelectorAll(".tab");
+  for (var i = 0; i < tabs.length; i++) tabs[i].classList.remove("on");
+  document.getElementById("tab-" + tab).classList.add("on");
+  // Update panels
+  var panels = document.querySelectorAll(".panel");
+  for (var i = 0; i < panels.length; i++) panels[i].classList.remove("on");
+  document.getElementById("p-" + tab).classList.add("on");
+}
+
+function renderContent() {
+  var el = document.getElementById("mainContent");
+  var d = DATA[currentAge];
+
+  var tabDefs = [
+    { id: "jak",   icon: "💬", label: "Jak mluvit" },
+    { id: "pozor", icon: "⚠️", label: "Pozor na" },
+    { id: "knihy", icon: "📚", label: "Knihy" },
+    { id: "list",  icon: "📄", label: "Pracovní list" }
+  ];
+
+  var vetaHTML = "";
+  for (var i = 0; i < d.jak_mluvit.length; i++) {
+    var v = d.jak_mluvit[i];
+    vetaHTML += '<div class="veta"><div class="veta-q">' + escH(v.veta) + '</div><div class="veta-k">' + escH(v.kontext) + '</div></div>';
+  }
+
+  var knihyHTML = "";
+  for (var i = 0; i < d.knihy.length; i++) {
+    var k = d.knihy[i];
+    knihyHTML += '<div class="kniha"><div class="kniha-ico">📖</div><div><div class="kniha-n">' + escH(k.nazev) + '</div><div class="kniha-p">' + escH(k.popis) + '</div></div></div>';
+  }
+
+  var tabsHTML = "";
+  for (var i = 0; i < tabDefs.length; i++) {
+    var t = tabDefs[i];
+    var on = t.id === currentTab ? " on" : "";
+    tabsHTML += '<button class="tab' + on + '" id="tab-' + t.id + '" onclick="selectTab(\'' + t.id + '\')"><span class="ti">' + t.icon + '</span><span>' + t.label + '</span></button>';
+  }
+
+  el.innerHTML =
+    '<div class="fadein">' +
+      '<div class="topic"><div class="lbl">Co dítě v tomto věku řeší</div><p>' + escH(d.co_resi) + '</p></div>' +
+      '<div class="tabs">' + tabsHTML + '</div>' +
+      '<div id="p-jak" class="panel' + (currentTab==="jak"?" on":"") + '">' + vetaHTML + '</div>' +
+      '<div id="p-pozor" class="panel' + (currentTab==="pozor"?" on":"") + '">' +
+        '<div class="pozor"><div class="pozor-h"><span>⚠️</span><div class="lbl">Na co si dát pozor</div></div><p>' + escH(d.pozor) + '</p></div>' +
+      '</div>' +
+      '<div id="p-knihy" class="panel' + (currentTab==="knihy"?" on":"") + '">' + knihyHTML + '</div>' +
+      '<div id="p-list" class="panel' + (currentTab==="list"?" on":"") + '">' +
+        '<div class="listcard"><div class="lbl">Pracovní list pro toto věkové pásmo</div><p>' + escH(d.pracovni_list) + '</p>' +
+        '<div class="list-note">💡 Pracovní listy jsou dostupné u lektorky besedy nebo v tištěném setu po skončení programu.</div></div>' +
+      '</div>' +
+      '<div class="quote"><div class="lbl">Zapamatuj si</div><p>Na otázku dítěte není špatná odpověď. Horší než nedokonalá odpověď je ticho.</p></div>' +
+    '</div>';
+
+  // Scroll to content
+  el.scrollIntoView({ behavior: "smooth", block: "start" });
+}
+
+function escH(s) {
+  return String(s)
+    .replace(/&/g,"&amp;")
+    .replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;")
+    .replace(/"/g,"&quot;");
+}
+
+// Run
+init();
+
+// Service worker
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", function() {
+    navigator.serviceWorker.register("sw.js").catch(function(){});
+  });
+}
+</script>
 </body>
 </html>
-<!-- This tag is appended; SW registration handled in app.js already, but adding here for safety -->
