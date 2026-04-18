@@ -15,173 +15,159 @@
 <title>Sexualita u dětí — Průvodce pro rodiče</title>
 <style>
 :root {
-  --g: #2d4a3e;
-  --gd: #1e3529;
-  --gl: #e8f2ed;
-  --am: #c8860a;
-  --al: #fff5e8;
-  --cr: #faf7f4;
-  --bd: #ede8e0;
-  --tx: #1a2820;
-  --mu: #7a7068;
-  --sf: 'Lora', Georgia, serif;
-  --ss: 'Source Sans 3', sans-serif;
+  --g:#2d4a3e; --gd:#1e3529; --gl:#e8f2ed;
+  --am:#c8860a; --al:#fff5e8;
+  --cr:#faf7f4; --bd:#ede8e0;
+  --tx:#1a2820; --mu:#7a7068;
+  --sf:'Lora',Georgia,serif;
+  --ss:'Source Sans 3',sans-serif;
 }
-* { box-sizing: border-box; margin: 0; padding: 0; }
-body {
-  background: var(--cr);
-  font-family: var(--sf);
-  min-height: 100dvh;
-}
-.hdr {
-  background: linear-gradient(160deg, var(--g) 0%, var(--gd) 100%);
-  padding: calc(24px + env(safe-area-inset-top,0px)) 24px 28px;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
-}
-.hdr::before {
-  content:''; position:absolute; border-radius:50%;
-  background:rgba(255,255,255,.04); pointer-events:none;
-  width:220px; height:220px; top:-70px; right:-60px;
-}
-.hdr-badge {
-  display:inline-block; background:rgba(255,255,255,.1);
-  border-radius:50px; padding:4px 16px;
-  font-family:var(--ss); font-size:10px; font-weight:600;
-  letter-spacing:3px; text-transform:uppercase;
-  color:rgba(255,255,255,.6); margin-bottom:14px;
-}
-.hdr h1 {
-  font-family:var(--sf); font-size:clamp(22px,5vw,28px);
-  font-weight:400; color:#f5f0ea; letter-spacing:.5px;
-}
-.hdr p {
-  margin-top:8px; font-family:var(--sf); font-style:italic;
-  font-size:14px; color:rgba(245,240,234,.6);
-}
-.wrap { max-width:680px; margin:0 auto; padding:20px 14px 60px; }
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--cr);font-family:var(--sf);min-height:100dvh}
 
-.card {
-  background:#fff; border-radius:16px; border:1px solid var(--bd);
-  box-shadow:0 2px 16px rgba(0,0,0,.055); padding:20px; margin-bottom:14px;
-}
-.lbl {
-  font-family:var(--ss); font-size:10px; font-weight:600;
-  letter-spacing:2.5px; text-transform:uppercase; color:#b0a898; margin-bottom:14px;
-}
+/* HEADER */
+.hdr{background:linear-gradient(160deg,var(--g) 0%,var(--gd) 100%);
+  padding:calc(24px + env(safe-area-inset-top,0px)) 24px 28px;
+  text-align:center;position:relative;overflow:hidden}
+.hdr::before{content:'';position:absolute;border-radius:50%;
+  background:rgba(255,255,255,.04);pointer-events:none;
+  width:220px;height:220px;top:-70px;right:-60px}
+.hdr-badge{display:inline-block;background:rgba(255,255,255,.1);
+  border-radius:50px;padding:4px 16px;font-family:var(--ss);font-size:10px;
+  font-weight:600;letter-spacing:3px;text-transform:uppercase;
+  color:rgba(255,255,255,.6);margin-bottom:14px}
+.hdr h1{font-family:var(--sf);font-size:clamp(22px,5vw,28px);
+  font-weight:400;color:#f5f0ea;letter-spacing:.5px}
+.hdr p{margin-top:8px;font-family:var(--sf);font-style:italic;
+  font-size:14px;color:rgba(245,240,234,.6)}
 
-/* Age buttons */
-.age-grid { display:flex; flex-wrap:wrap; gap:8px; }
-.age-btn {
-  display:flex; align-items:center; gap:7px;
-  padding:9px 16px; border-radius:50px;
-  border:2px solid var(--bd); background:var(--cr);
-  color:#4a3f35; cursor:pointer;
-  font-family:var(--ss); font-size:14px; font-weight:400;
-  transition:all .25s cubic-bezier(.34,1.56,.64,1);
-  -webkit-tap-highlight-color:transparent;
-  user-select:none;
-}
-.age-btn:active { transform:scale(.96); }
-.age-btn.on {
-  border-color:var(--g); background:var(--g);
-  color:#f5f0ea; font-weight:600;
-  box-shadow:0 4px 14px rgba(45,74,62,.3);
-}
+/* LAYOUT */
+.wrap{max-width:680px;margin:0 auto;padding:20px 14px 60px}
 
-/* Topic banner */
-.topic {
-  background:linear-gradient(135deg,var(--g) 0%,var(--gd) 100%);
-  border-radius:16px; padding:20px 22px; margin-bottom:14px;
-  color:#fff; position:relative; overflow:hidden;
-}
-.topic::after {
-  content:''; position:absolute; top:-30px; right:-30px;
-  width:120px; height:120px; border-radius:50%;
-  background:rgba(255,255,255,.04); pointer-events:none;
-}
-.topic .lbl { color:rgba(255,255,255,.5); margin-bottom:10px; }
-.topic p { font-family:var(--sf); font-size:15px; line-height:1.75; color:rgba(255,255,255,.92); }
+/* CARDS */
+.card{background:#fff;border-radius:16px;border:1px solid var(--bd);
+  box-shadow:0 2px 16px rgba(0,0,0,.055);padding:20px;margin-bottom:14px}
+.lbl{font-family:var(--ss);font-size:10px;font-weight:600;
+  letter-spacing:2.5px;text-transform:uppercase;color:#b0a898;margin-bottom:14px}
 
-/* Tabs */
-.tabs {
-  display:flex; gap:5px; background:#fff;
-  border-radius:14px; border:1px solid var(--bd);
-  padding:6px; margin-bottom:14px;
-  box-shadow:0 2px 12px rgba(0,0,0,.05);
-}
-.tab {
-  flex:1; display:flex; flex-direction:column;
-  align-items:center; gap:3px; padding:9px 4px;
-  border-radius:10px; border:none; background:transparent;
-  color:#9a9088; cursor:pointer;
-  font-family:var(--ss); font-size:11px; font-weight:400;
-  transition:all .2s; -webkit-tap-highlight-color:transparent;
-  user-select:none; line-height:1.2;
-}
-.tab .ti { font-size:17px; }
-.tab:active { background:#f5f0ea; }
-.tab.on { background:var(--g); color:#fff; font-weight:600; box-shadow:0 2px 10px rgba(45,74,62,.25); }
+/* AGE BUTTONS */
+.age-grid{display:flex;flex-wrap:wrap;gap:8px}
+.age-btn{display:flex;align-items:center;gap:7px;padding:9px 16px;
+  border-radius:50px;border:2px solid var(--bd);background:var(--cr);
+  color:#4a3f35;cursor:pointer;font-family:var(--ss);font-size:14px;
+  font-weight:400;transition:all .25s cubic-bezier(.34,1.56,.64,1);
+  -webkit-tap-highlight-color:transparent;user-select:none}
+.age-btn:active{transform:scale(.96)}
+.age-btn.on{border-color:var(--g);background:var(--g);color:#f5f0ea;
+  font-weight:600;box-shadow:0 4px 14px rgba(45,74,62,.3)}
 
-/* Panels */
-.panel { display:none; }
-.panel.on { display:block; }
+/* TOPIC */
+.topic{background:linear-gradient(135deg,var(--g) 0%,var(--gd) 100%);
+  border-radius:16px;padding:20px 22px;margin-bottom:14px;
+  color:#fff;position:relative;overflow:hidden}
+.topic::after{content:'';position:absolute;top:-30px;right:-30px;
+  width:120px;height:120px;border-radius:50%;
+  background:rgba(255,255,255,.04);pointer-events:none}
+.topic .lbl{color:rgba(255,255,255,.5);margin-bottom:10px}
+.topic p{font-family:var(--sf);font-size:15px;line-height:1.75;color:rgba(255,255,255,.92)}
 
-/* Veta cards */
-.veta {
-  background:#fff; border-radius:14px; padding:16px 18px;
-  margin-bottom:10px; border:1px solid var(--bd);
-  border-left:3px solid var(--g);
-  box-shadow:0 2px 10px rgba(0,0,0,.05);
-}
-.veta-q { font-family:var(--sf); font-style:italic; font-size:15px; color:var(--tx); line-height:1.65; margin-bottom:8px; }
-.veta-k { font-family:var(--ss); font-size:12.5px; color:#9a9088; line-height:1.5; display:flex; gap:5px; }
-.veta-k::before { content:'→'; flex-shrink:0; }
+/* TABS */
+.tabs{display:flex;gap:5px;background:#fff;border-radius:14px;
+  border:1px solid var(--bd);padding:6px;margin-bottom:14px;
+  box-shadow:0 2px 12px rgba(0,0,0,.05)}
+.tab{flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;
+  padding:9px 4px;border-radius:10px;border:none;background:transparent;
+  color:#9a9088;cursor:pointer;font-family:var(--ss);font-size:11px;
+  font-weight:400;transition:all .2s;-webkit-tap-highlight-color:transparent;
+  user-select:none;line-height:1.2}
+.tab .ti{font-size:17px}
+.tab:active{background:#f5f0ea}
+.tab.on{background:var(--g);color:#fff;font-weight:600;
+  box-shadow:0 2px 10px rgba(45,74,62,.25)}
 
-/* Pozor */
-.pozor {
-  background:#fff; border-radius:14px; padding:22px;
-  border:1px solid var(--bd); border-left:3px solid var(--am);
-  box-shadow:0 2px 10px rgba(0,0,0,.05);
-}
-.pozor-h { display:flex; align-items:center; gap:8px; margin-bottom:14px; }
-.pozor-h .lbl { margin-bottom:0; color:var(--am); }
-.pozor p { font-family:var(--sf); font-size:15px; line-height:1.8; color:#2a2018; }
+/* PANELS */
+.panel{display:none}
+.panel.on{display:block}
 
-/* Knihy */
-.kniha {
-  background:#fff; border-radius:14px; padding:14px 18px;
-  margin-bottom:10px; display:flex; gap:14px; align-items:flex-start;
-  border:1px solid var(--bd); box-shadow:0 2px 10px rgba(0,0,0,.05);
-}
-.kniha-ico {
-  width:42px; height:42px; border-radius:10px; flex-shrink:0;
+/* SITUACE CARDS */
+.sit{background:#fff;border-radius:14px;padding:16px 18px;
+  margin-bottom:10px;border:1px solid var(--bd);
+  border-left:3px solid var(--g);box-shadow:0 2px 10px rgba(0,0,0,.05)}
+.sit-trigger{font-family:var(--ss);font-size:12px;font-weight:600;
+  text-transform:uppercase;letter-spacing:1.5px;color:var(--g);
+  margin-bottom:6px}
+.sit-q{font-family:var(--sf);font-style:italic;font-size:15px;
+  color:#3a2010;line-height:1.6;margin-bottom:10px;
+  padding:8px 12px;background:#f9f5f0;border-radius:8px}
+.sit-a{font-family:var(--sf);font-size:14.5px;color:var(--tx);
+  line-height:1.65;margin-bottom:8px}
+.sit-note{font-family:var(--ss);font-size:12.5px;color:#9a9088;
+  line-height:1.5;display:flex;gap:5px}
+.sit-note::before{content:'→';flex-shrink:0}
+
+/* SEKCE NADPIS */
+.sec-title{font-family:var(--ss);font-size:11px;font-weight:600;
+  letter-spacing:2px;text-transform:uppercase;color:var(--mu);
+  margin:18px 0 8px;padding-left:4px}
+
+/* POZOR */
+.pozor{background:#fff;border-radius:14px;padding:22px;
+  border:1px solid var(--bd);border-left:3px solid var(--am);
+  box-shadow:0 2px 10px rgba(0,0,0,.05);margin-bottom:10px}
+.pozor-h{display:flex;align-items:center;gap:8px;margin-bottom:12px}
+.pozor-h .lbl{margin-bottom:0;color:var(--am)}
+.pozor p{font-family:var(--sf);font-size:15px;line-height:1.8;color:#2a2018}
+
+/* KNIHY */
+.kniha{background:#fff;border-radius:14px;padding:14px 18px;
+  margin-bottom:10px;display:flex;gap:14px;align-items:flex-start;
+  border:1px solid var(--bd);box-shadow:0 2px 10px rgba(0,0,0,.05)}
+.kniha-ico{width:42px;height:42px;border-radius:10px;flex-shrink:0;
   background:linear-gradient(135deg,var(--g),var(--gd));
-  display:flex; align-items:center; justify-content:center; font-size:20px;
+  display:flex;align-items:center;justify-content:center;font-size:20px}
+.kniha-n{font-family:var(--sf);font-weight:600;font-size:14px;color:var(--tx);margin-bottom:4px}
+.kniha-p{font-family:var(--ss);font-size:13px;color:var(--mu);line-height:1.55}
+
+/* PRACOVNÍ LISTY */
+.wsheet{background:#fff;border-radius:14px;padding:16px 18px;
+  margin-bottom:10px;border:1px solid var(--bd);
+  box-shadow:0 2px 10px rgba(0,0,0,.05);
+  display:flex;align-items:flex-start;gap:14px}
+.wsheet-ico{width:44px;height:44px;border-radius:10px;flex-shrink:0;
+  background:linear-gradient(135deg,var(--am),#a06800);
+  display:flex;align-items:center;justify-content:center;font-size:22px}
+.wsheet-body{flex:1}
+.wsheet-n{font-family:var(--sf);font-weight:600;font-size:14.5px;color:var(--tx);margin-bottom:3px}
+.wsheet-p{font-family:var(--ss);font-size:13px;color:var(--mu);line-height:1.5;margin-bottom:10px}
+.btn-print{display:inline-flex;align-items:center;gap:6px;
+  padding:8px 14px;background:var(--g);color:#fff;
+  border:none;border-radius:8px;cursor:pointer;
+  font-family:var(--ss);font-size:13px;font-weight:600;
+  -webkit-tap-highlight-color:transparent;transition:opacity .2s}
+.btn-print:active{opacity:.8}
+
+/* QUOTE */
+.quote{background:linear-gradient(135deg,#fffaf4,var(--al));border-radius:14px;
+  padding:20px 22px;margin-top:14px;border:1px solid #e8d8b8;text-align:center}
+.quote .lbl{color:var(--am);margin-bottom:10px}
+.quote p{font-family:var(--sf);font-style:italic;font-size:15px;line-height:1.75;color:#6a4010}
+
+/* EMPTY */
+.empty{text-align:center;padding:52px 24px;color:#c0b8b0;
+  font-family:var(--sf);font-style:italic;font-size:15px;line-height:1.9}
+.empty .big{font-size:44px;margin-bottom:18px}
+
+footer{text-align:center;margin-top:36px;padding:16px;
+  font-family:var(--ss);font-size:11px;color:#c8c0b8;
+  border-top:1px solid var(--bd);letter-spacing:1px}
+
+.fadein{animation:fu .35s cubic-bezier(.22,1,.36,1) both}
+@keyframes fu{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+
+/* PRINT SHEET (hidden, rendered in new tab) */
+@media print{
+  .hdr,.tabs,.age-grid,.card,.btn-print{display:none}
 }
-.kniha-n { font-family:var(--sf); font-weight:600; font-size:14px; color:var(--tx); margin-bottom:4px; }
-.kniha-p { font-family:var(--ss); font-size:13px; color:var(--mu); line-height:1.55; }
-
-/* List */
-.listcard { background:#fff; border-radius:14px; padding:22px; border:1px solid var(--bd); box-shadow:0 2px 10px rgba(0,0,0,.05); }
-.listcard .lbl { color:var(--g); margin-bottom:12px; }
-.listcard p { font-family:var(--sf); font-size:15px; line-height:1.75; color:#2a2018; margin-bottom:16px; }
-.list-note { background:linear-gradient(135deg,#f0f7f4,var(--gl)); border-radius:10px; padding:13px 15px; font-family:var(--ss); font-size:13px; color:var(--g); line-height:1.6; border:1px solid #c8e0d5; }
-
-/* Quote */
-.quote { background:linear-gradient(135deg,#fffaf4,var(--al)); border-radius:14px; padding:20px 22px; margin-top:14px; border:1px solid #e8d8b8; text-align:center; }
-.quote .lbl { color:var(--am); margin-bottom:10px; }
-.quote p { font-family:var(--sf); font-style:italic; font-size:15px; line-height:1.75; color:#6a4010; }
-
-/* Empty */
-.empty { text-align:center; padding:52px 24px; color:#c0b8b0; font-family:var(--sf); font-style:italic; font-size:15px; line-height:1.9; }
-.empty .big { font-size:44px; margin-bottom:18px; }
-
-footer { text-align:center; margin-top:36px; padding:16px; font-family:var(--ss); font-size:11px; color:#c8c0b8; border-top:1px solid var(--bd); letter-spacing:1px; }
-
-.fadein { animation:fu .35s cubic-bezier(.22,1,.36,1) both; }
-@keyframes fu { from{opacity:0;transform:translateY(14px)} to{opacity:1;transform:translateY(0)} }
 </style>
 </head>
 <body>
@@ -197,113 +183,664 @@ footer { text-align:center; margin-top:36px; padding:16px; font-family:var(--ss)
     <div class="lbl">Věk mého dítěte</div>
     <div class="age-grid" id="ageGrid"></div>
   </div>
-
   <div id="mainContent">
     <div class="empty">
       <div class="big">👆</div>
       Vyber věk svého dítěte<br>a získej konkrétní tipy a doporučení.
     </div>
   </div>
-
-  <footer>Průvodce vznikl jako součást besedy pro rodiče</footer>
+  <footer>Průvodce vznikl jako součást besedy pro rodiče · STŘED, z. ú.</footer>
 </div>
 
 <script>
 var DATA = {
-  "2-4": {
-    label: "2\u20134 roky", emoji: "\uD83C\uDF31",
-    co_resi: "D\xedt\u011b objevuje sv\xe9 t\u011blo, zaj\xedm\xe1 se o t\u011bla ostatn\xedch (sourozenec, rodi\u010d). Za\u010d\xedn\xe1 si uv\u011bdomovat rozd\xedly mezi pohlav\xedmi. M\u016f\u017ee sahat na genit\xe1lie \u2014 to je norm\xe1ln\xed v\xfdzkum, ne sexu\xe1ln\xed chov\xe1n\xed.",
-    jak_mluvit: [
-      { veta: "\u201eTo jsou tvoje soukrom\xe9 \u010d\xe1sti. Pat\u0159\xed jen tob\u011b.\u201c", kontext: "Kdy\u017e d\xedt\u011b sah\xe1 na sebe nebo na jin\xe9." },
-      { veta: "\u201eT\u017dhle se d\u011bl\xe1 jen v soukrom\xed, v pokoji\u010dku \u2014 ne u stolu nebo ve \u0161kolce.\u201c", kontext: "Bez dramatizace, klidn\xfdm t\xf3nem." },
-      { veta: "\u201eT\u017f se jmenuje penis\u00a0/\u00a0vulva.\u201c", kontext: "P\u0159i koup\xe1n\xed nebo obl\xe9k\xe1n\xed \u2014 prost\u011b a p\u0159irozen\u011b." }
-    ],
-    pozor: "Nikdy se nesm\u011bj ani nezahanbuj. Z\xe1jem o t\u011blo je p\u0159irozen\xfd. Tv\xe1 reakce nastav\xed, zda za tebou d\xedt\u011b p\u0159ijde i p\u0159\xed\u0161t\u011b.",
-    knihy: [
-      { nazev: "Kde bydl\xedm? (Robie Harris)", popis: "Kr\xe1sn\u011b ilustrovan\xe1 kn\xed\u017eka o t\u011ble pro nejmen\u0161\xed." },
-      { nazev: "Jak se d\u011blaj\xed d\u011bti (Babette Cole)", popis: "Hrav\u011b a s humorem \u2014 dobr\xe9 pro prvn\xed ot\xe1zky." }
-    ],
-    pracovni_list: "Pojmenuj \u010d\xe1sti t\u011bla \u2014 obr\xe1zek pro d\u011bti 2\u20134 roky s prostorem pro dopln\u011bn\xed spr\xe1vn\xfdch n\xe1zv\u016f."
-  },
-  "4-6": {
-    label: "4\u20136 let", emoji: "\uD83C\uDF3F",
-    co_resi: "P\u0159ich\xe1zej\xed prvn\xed ot\xe1zky: Odkud jsem p\u0159i\u0161el/a? Pro\u010d m\xe1 br\xe1cha jin\xe9 t\u011blo? Z\xe1jem o t\u011bhotenstv\xed, porod. Hra na doktory je norm\xe1ln\xed \u2014 pokud nen\xed nucen\xe1 nebo tajn\xe1.",
-    jak_mluvit: [
-      { veta: "\u201eKdy\u017e se mami a tati maj\xed r\xe1di, mohou si b\xfdt velmi bl\xedzko. Z t\xe9 l\xe1sky m\u016f\u017ee v b\u0159\xed\u0161ku vyr\u016fst miminko.\u201c", kontext: "Na ot\xe1zku odkud se berou d\u011bti \u2014 pravdiv\u011b a jednodu\u0161e." },
-      { veta: "\u201eD\xedvky maj\xed vulvu a vag\xednu, chlapci maj\xed penis a varlata. To je p\u0159irozen\xe9.\u201c", kontext: "Na ot\xe1zku pro\u010d jsme jin\xed \u2014 bez tajemstv\xed." },
-      { veta: "\u201ePokud t\u011b n\u011bkdo \u017e\xe1d\xe1 d\u011blat v\u011bci s t\u011blem a m\xe1 to b\xfdt tajemstv\xed \u2014 p\u0159ij\u010f za mnou.\u201c", kontext: "Z\xe1klad bezpe\u010dnostn\xedho pravidla." }
-    ],
-    pozor: "Hra na doktory je norm\xe1ln\xed zv\u011bdavost. Zak\xe1zat ji ost\u0159e m\u016f\u017ee vyvolat pocit hanby. Lep\u0161\xed je klidn\u011b nastavit pravidla: bez bolesti, bez nucen\xed.",
-    knihy: [
-      { nazev: "Jak se d\u011blaj\xed d\u011bti (Robie Harris, 4\u20138 let)", popis: "Odpov\xedd\xe1 p\u0159esn\u011b na ot\xe1zky tohoto v\u011bku." },
-      { nazev: "Moje t\u011blo pat\u0159\xed mn\u011b (Jill Starishevsky)", popis: "O bezpe\u010d\xed t\u011bla a bezpe\u010dn\xfdch tajemstv\xedch." }
-    ],
-    pracovni_list: "Poh\xe1dkov\xfd p\u0159\xedb\u011bh o mimince v b\u0159\xed\u0161ku \u2014 s m\xedstem pro vlastn\xed kresbu a ot\xe1zkami k pov\xefd\xe1n\xed."
-  },
-  "6-8": {
-    label: "6\u20138 let", emoji: "\uD83C\uDF33",
-    co_resi: "D\xedt\u011b p\u0159ich\xe1z\xed se zpr\xe1vami od spolu\u017e\xe1k\u016f \u2014 mnohdy nep\u0159esn\xfdmi. M\u016f\u017ee narazit na nevhodn\xfd obsah online. Za\u010d\xedn\xe1 ch\xe1pat soukrom\xed a intimn\xed z\xf3nu. Z\xe1jem o romantick\xe9 vztahy (filmy, poh\xe1dky).",
-    jak_mluvit: [
-      { veta: "\u201eSly\u0161el/a jsi od kamar\xe1d\u016f n\u011bco o tomhle? \u0158ekni mi, co sis myslel/a.\u201c", kontext: "Otev\u0159\xedt t\xe9ma p\u0159irozen\u011b, bez v\xfdslechu." },
-      { veta: "\u201ePokud na internetu uvid\xed\u0161 n\u011bco divn\xe9ho nebo nep\u0159\xedjemn\xe9ho \u2014 p\u0159ij\u010f za mnou. Nezlob\xedm se, i kdyby to bylo divn\xe9.\u201c", kontext: "Preventivn\u011b, bez zakazov\xe1n\xed." },
-      { veta: "\u201eSpr\xe1vn\xe9 a bezpe\u010dn\xe9 objeti je takov\xe9, kdy ob\u011b strany cht\u011bj\xed.\u201c", kontext: "O souhlasu \u2014 srozumiteln\u011b pro tento v\u011bk." }
-    ],
-    pozor: "Toto je kl\xed\u010dov\xe9 v\u011bkov\xe9 okno pro prevenci. D\xedt\u011b je\u0161t\u011b v\u011b\u0159\xed rodi\u010d\u016fm v\xedce ne\u017e vrstevn\xedk\u016fm. Za 2\u20133 roky se to oto\u010d\xed.",
-    knihy: [
-      { nazev: "Velk\xe1 kniha o t\u011ble (DK)", popis: "V\u011bdeck\u011b p\u0159esn\xe1, hrav\xe1 \u2014 pro zv\xeddav\xe9 d\u011bti." },
-      { nazev: "Co se d\u011bje s m\xfdm t\u011blem (Lynda Madaras)", popis: "Verze pro d\xedvky i pro chlapce, velmi p\u0159\xedstupn\xe1." }
-    ],
-    pracovni_list: "Bezpe\u010dn\xe9 a nebezpe\u010dn\xe9 situace \u2014 komiksov\xfd pracovn\xed list pro rozpozn\xe1n\xed hranic."
-  },
-  "9-11": {
-    label: "9\u201311 let", emoji: "\uD83C\uDFF5\uFE0F",
-    co_resi: "T\u011blesn\xe9 zm\u011bny \u2014 puberta se bl\xed\u017e\xed nebo za\u010d\xedn\xe1. Z\xe1jem o romantiku, prvn\xed l\xe1sky. Intenzivn\xed pot\u0159eba soukrom\xed. D\xedvky se mohou pt\xe1t na menstruaci, chlapci na no\u010dn\xed poluce a erekce.",
-    jak_mluvit: [
-      { veta: "\u201eChci ti \u0159\xedct o zm\u011bn\xe1ch, kter\xe9 p\u0159ijdou, d\u0159\xedv ne\u017e p\u0159ijdou \u2014 abys nebyla/nebyl zaskocen/a.\u201c", kontext: "Proaktivn\u011b \u2014 ne \u010dekat na ot\xe1zky." },
-      { veta: "\u201eMenstruace je znamen\xed, \u017ee tvoje t\u011blo dosp\xedv\xe1. Je to norm\xe1ln\xed a dobr\xe9.\u201c", kontext: "Bez trapnosti, v\u011bcn\u011b." },
-      { veta: "\u201eChlapci m\xedv\xe1 erekce nebo no\u010dn\xed poluce \u2014 to je p\u0159irozen\xe1 sou\u010d\xe1st dosp\xedv\xe1n\xed.\u201c", kontext: "Preventivn\u011b, ne\u017e se to stane." }
-    ],
-    pozor: "D\xedt\u011b pot\u0159ebuje soukrom\xed \u2014 a z\xe1rove\u0148 v\xed, \u017ee m\u016f\u017ee p\u0159ij\xedt. Tyto dv\u011b v\u011bci nejsou v rozporu. Nab\xeddn\xf3, neku\u010d se.",
-    knihy: [
-      { nazev: "Puberta (Anke Napp)", popis: "Pro 8\u201312 let, v\u011bcn\xe1, hezky ilustrovan\xe1, bez p\xe1tosu." },
-      { nazev: "Hol\u010di\u010d\xed pr\u016fvodce pubertou (American Girl)", popis: "Velmi obl\xedben\xe1 u d\xedvek." }
-    ],
-    pracovni_list: "Den\xedk zm\u011bn \u2014 soukrom\xfd arch pro sledov\xe1n\xed fyzick\xfdch a emo\u010dn\xedch zm\u011bn s pr\u016fvodn\xedmi ot\xe1zkami."
-  },
-  "12-14": {
-    label: "12\u201314 let", emoji: "\uD83C\uDF38",
-    co_resi: "Vztahy, prvn\xed polibky a intimn\xed z\xe1jmy. Pornografie \u2014 valn\xe1 v\u011bt\u0161ina d\u011bt\xed ji v tomto v\u011bku vid\xed. Identita, orientace. Tlak vrstevn\xedk\u016f. Online bezpe\u010d\xed. Souhlas a hranice v re\xe1ln\xfdch vztaz\xedch.",
-    jak_mluvit: [
-      { veta: "\u201eHodn\u011b d\u011bt\xed v tv\xe9m v\u011bku narazilo na pornografii. Chci ti \u0159\xedct, jak to doopravdy funguje mezi lidmi \u2014 je to jin\xe9.\u201c", kontext: "Bez obvi\u0148ov\xe1n\xed \u2014 prevence dezinformac\xed." },
-      { veta: "\u201ePokud by t\u011b n\u011bkdo tla\u010dil do n\u011b\u010deho, co nechce\u0161 \u2014 i kamar\xe1d nebo partner \u2014 je to \u0161patn\u011b. A mn\u011b to m\u016f\u017ee\u0161 \u0159\xedt.\u201c", kontext: "O souhlasu v konkr\xe9tn\xedch situac\xedch." },
-      { veta: "\u201eNikdy se t\u011b na nic nept\xe1m, co ti nevad\xed \u0159\xedt. Ale jsem tady, kdy\u017e bude\u0161 cht\xedt.\u201c", kontext: "Udr\u017eet p\u0159\xedtomnost bez tlaku." }
-    ],
-    pozor: "Nereaguj panikou na to, co se dovíš. Pokud teenageři vědí, že rodič zpanikuje, přestanou říkat pravdu.",
-    knihy: [
-      { nazev: "Amaze.org / YouTube kan\xe1l", popis: "Videa pro teenagery o vztaz\xedch, souhlasu, t\u011ble \u2014 kvalitn\xed, bez moralizov\xe1n\xed." },
-      { nazev: "Dan Siegel: Bou\u0159liv\xe1 l\xe9ta", popis: "Pro rodi\u010de \u2014 pro\u010d se teenage mozek chov\xe1 jak se chov\xe1." }
-    ],
-    pracovni_list: "Sc\xe9n\xe1\u0159e pro rozhodov\xe1n\xed \u2014 co bys d\u011blal/a kdybys\u2026 \u2014 karty pro rozhovor s teenagerem."
-  },
-  "15+": {
-    label: "15+ let", emoji: "\uD83E\uDD8B",
-    co_resi: "Aktivn\xed nebo bl\xed\u017e\xedc\xed se sexu\xe1ln\xed \u017eivot. Antikoncepce, STI prevence. Zdrav\xe9 vs. nezdrav\xe9 vztahy. Digit\xe1ln\xed stopy. Emo\u010dn\xed dopad intimn\xedch vztah\u016f.",
-    jak_mluvit: [
-      { veta: "\u201eA\u0165 se rozhodne\u0161 cokoliv \u2014 chci, aby ses c\xedtil/a bezpe\u010dn\u011b. Mluvit se mnou o antikoncepci nen\xed souhlas, \u017ee to schvaluju \u2014 je to starost o tebe.\u201c", kontext: "Otev\u0159\xedt t\xe9ma praktick\xe9 bezpe\u010dnosti." },
-      { veta: "\u201eZdrav\xfd vztah je takov\xfd, kde se oba c\xedt\xed svobodn\u011b \u0159\xedt ne nebo stop.\u201c", kontext: "O souhlasu v dosp\u011bl\xe9m smyslu." },
-      { veta: "\u201eNikdy nepo\u0161li intimn\xed fotky \u2014 ani partnerovi. Jednou poslan\xe9, nelze vz\xedt zp\u011bt.\u201c", kontext: "Prakticky a bez k\xe1z\xe1n\xed." }
-    ],
-    pozor: "V tomto v\u011bku je rodi\u010d pr\u016fvodce, ne hl\xedd\u010d. Pokud chce\u0161, aby se tv\xe9 d\xedt\u011b chovalo zodpov\u011bdn\u011b, mus\xed c\xedtit, \u017ee mu v\u011b\u0159\xed\u0161.",
-    knihy: [
-      { nazev: "Emily Nagoski: Jak funguje \u017eensk\xe1 sexualita", popis: "Pro star\u0161\xed d\xedvky a jejich maminky \u2014 pr\u016flomov\xe1." },
-      { nazev: "The Teenage Brain (Frances Jensen)", popis: "Pro rodi\u010de \u2014 v\u011bda o mozku teenagera." }
-    ],
-    pracovni_list: "Pr\u016fvodce zdrav\xfdmi vztahy \u2014 kontroln\xed seznam sign\xe1l\u016f zdrav\xe9ho a nezdrav\xe9ho vztahu."
-  }
-};
+
+/* ═══════════════════════════════════════════════════ 2–4 ROKY */
+"2-4": {
+  label:"2\u20134 roky", emoji:"\uD83C\uDF31",
+  co_resi:"Dítě objevuje, co má a nemá pod oblečením \u2014 svoje i ostatních. Pojmenovává části těla, nebo spíš neumí a čeká, co řekneš ty. Může sahat na genitálie na veřejnosti, doma i ve školce. Je to průzkum, ne sexuální chování.",
+  situace:[
+    {
+      trigger:"Dítě sahá na sebe u stolu nebo v obchodě",
+      dite:"(nic neříká, jen si hraje s rozkrokem)",
+      odpoved:"»Tohle děláme v soukromí, v pokojíčku nebo na záchodě. Teď si sáhni jinam.«",
+      note:"Klidně, bez dramatizace. Pokud se bude smát nebo zkoušet znovu, zkrátka zopakuj. Sami si na to zvyknou."
+    },
+    {
+      trigger:"Dívá se na sourozence nebo kamaráda při přebalování / WC",
+      dite:"»Proč má jiný birinu?« / »Proč nemá koulíčky?«",
+      odpoved:"»Holčičky mají vulvu, chlapci mají penis. Jsme trochu jinak stavění, ale jinak jsme stejní.«",
+      note:"Anatomický název od začátku — vulva, penis, zadek. Slangová slova nejsou špatná, ale dítě potřebuje znat i správné pojmy."
+    },
+    {
+      trigger:"Při koupání se ptá, co to je",
+      dite:"»Mami, a co je tohle?«",
+      odpoved:"»To je tvůj penis.« / »To je tvoje vulva.« Hotovo.",
+      note:"Žádné rozpaky, žádná pauza. Jak řekneš ‚tohle je loket', tak řekneš i toto. Dítě se naučí, že tělo nemá tajné ani trapné části."
+    },
+    {
+      trigger:"Dítě se svlékne a běhá nahé před hosty",
+      dite:"(smích, hrdost, nebo nic)",
+      odpoved:"»Jsi moc fajn, ale oblékneme se. Nahé tělo je soukromé.«",
+      note:"Neřvi, nesměj se posměšně, nestydím se za ně. Jen prosté pravidlo: soukromé části jsou soukromé."
+    }
+  ],
+  pozor:[
+    "Pokud dítě popisuje, že se ho někdo dotýkal na soukromých částech, nebo kreslí obrázky se sexuálním obsahem, který neodpovídá věku — nebagatelizuj a obrať se na odborníka.",
+    "Někdy rodiče dítě za zájem o tělo stydí nebo trestají. To nevede k tomu, že zájem zmizí — vede to jen k tomu, že dítě přestane ptát. Přesně tohle nechceme."
+  ],
+  knihy:[
+    {nazev:"Moje tělo (od 2 let, různí autoři)", popis:"Jednoduchá knížka s obrázky, kde jsou správně pojmenovány všechny části těla včetně pohlavních."},
+    {nazev:"Kde bydlím? — Robie Harris", popis:"Hravá, vlídná, doporučovaná logopedy i pediatry."}
+  ],
+  worksheets:[
+    {
+      nazev:"Pojmenuj své tělo",
+      popis:"Obrázek chlapce a dívky s prázdnými šipkami. Dítě (s rodičem) doplní jména částí těla.",
+      obsah: ws_telo_2_4
+    }
+  ]
+},
+
+/* ═══════════════════════════════════════════════════ 4–6 LET */
+"4-6": {
+  label:"4\u20136 let", emoji:"\uD83C\uDF3F",
+  co_resi:"Přicházejí první konkrétní otázky. Hra na doktory. Zájem o těhotenství a porod. Dítě může ve školce narazit na slova, která nezná. Začínají se formovat první představy o tom, co je ‚normální' a co ne \u2014 a ty je hodně ovlivníš ty.",
+  situace:[
+    {
+      trigger:"Přijde domů se slovem ze školky",
+      dite:"»Tomáš říkal, že s ním mám dělat pindulu. Co to je?«",
+      odpoved:"»To slovo asi slyšel od někoho staršího. Myslím, že myslel penis — část těla chlapců. Říkal to jako nadávku, nebo jako žert?«",
+      note:"Nezačínej výslechem Tomáše. Dítě potřebuje jen zasadit slovo do kontextu a vědět, že se tě může na tyhle věci ptát."
+    },
+    {
+      trigger:"Ptá se odkud přišlo",
+      dite:"»Mami, odkud jsem přišel/a?«",
+      odpoved:"»Vyrostl/a jsi v mém bříšku. Začal/a jsi jako malinká buňka, která se postupně zvětšovala. Pak jsi byl/a velký/á a přišel/a jsi ven.«",
+      note:"Nepotřebuje teď vědět vše o pohlavním styku. Ale pokud se zeptá ‚a jak ses tam dostal/a?' \u2014 pokračuj: ‚Táta přidal svou buňku a moje buňka s ní splynula.'"
+    },
+    {
+      trigger:"Hra na doktory s kamarádem",
+      dite:"(ukazují si navzájem těla, sahají)",
+      odpoved:"»Víte co, pojďte ven a zahrajte si raději na záchranáře. A pravidlo je: nikdo nikomu nesahá na soukromé části, ani při hře.«",
+      note:"Tohle je normální zvědavost, ne sexuální chování. Nezlob se, nestraš je. Nastav pravidlo klidně a bez velké scény."
+    },
+    {
+      trigger:"Dívka se ptá proč má kamarád penis a ona ne",
+      dite:"»Proč má Ondra jiné tělo? Je to fér?«",
+      odpoved:"»Lidi se rodí s různými těly. Někteří mají penis, někteří vulvu. Je to přirozené, ani jedno není lepší.«",
+      note:"Prostor pro otázky o identitě přijde brzy. Zatím stačí, že těla jsou různá a všechna jsou v pořádku."
+    },
+    {
+      trigger:"Dítě řekne, že chce být druhým pohlavím",
+      dite:"»Já chci být kluk.« / »Já jsem holka, ne kluk.«",
+      odpoved:"»Dobře. Jak ti mám říkat?« \u2014 a nech to být. Nepřesvědčuj, neopravuj, nepanic.",
+      note:"V tomto věku je to čast normální výzkum identity. Ale pokud to trvá a prohlubuje se \u2014 je dobré o tom mluvit, ne to mazat."
+    }
+  ],
+  pozor:[
+    "Pokud dítě říká, že ‚to musí být tajemství' v souvislosti s tělem nebo s doteky \u2014 vždy se ptej dál. Bezpečná tajemství jsou překvapení (dort k narozeninám). Tajemství o tělech bezpečná nejsou.",
+    "Někteří rodiče v tomto věku říkají, že na povídání je čas ‚až bude větší'. Jenže právě teď se nastavují základy: je tělo něco, o čem se doma mluví, nebo ne?"
+  ],
+  knihy:[
+    {nazev:"Jak se dělají děti \u2014 Robie Harris (4\u20138 let)", popis:"Klasika. Přesná, věková, krásně ilustrovaná. Čte se spolu s dítětem."},
+    {nazev:"Moje tělo patří mně \u2014 Jill Starishevsky", popis:"O soukromých částech, bezpečných a nebezpečných dotecích. Vhodné pro prevenci."},
+    {nazev:"Mluvíme o různých rodinách (různí autoři)", popis:"Rodiny jsou různé \u2014 dva táti, dvě mámy, jeden rodič. Přirozené uvedení do rozmanitosti."}
+  ],
+  worksheets:[
+    {
+      nazev:"Bezpečné a nebezpečné doteky",
+      popis:"Obrázky různých situací \u2014 dítě zaškrtne, které jsou ok a které ne. S místem pro otázky.",
+      obsah: ws_doteky_4_6
+    },
+    {
+      nazev:"Pravidla mého těla",
+      popis:"Čtyři základní pravidla ochrany těla formou jednoduché plakátové grafiky pro vylepení v pokoji.",
+      obsah: ws_pravidla_4_6
+    }
+  ]
+},
+
+/* ═══════════════════════════════════════════════════ 6–8 LET */
+"6-8": {
+  label:"6\u20138 let", emoji:"\uD83C\uDF33",
+  co_resi:"Spolužáci jsou teď hlavní zdroj informací \u2014 a mnohdy nepřesných. Dítě může přijít domů s naprostým nesmyslem prezentovaným jako fakt. Začíná chápat, co je soukromé. Má přátele, záliby, možná první ‚zamilování'.",
+  situace:[
+    {
+      trigger:"Přijde ze školy s informací od spolužáka",
+      dite:"»Marek říkal, že sex je, když si dva lidi lehnou a táta píchne mámě do břicha.«",
+      odpoved:"»Marek to asi slyšel někde, ale trochu to popletl. Chceš vědět, jak to doopravdy funguje? Řeknu ti to správně.«",
+      note:"Neřvi na Marka ani na dítě. Tady je šance vysvětlit to správně dřív, než se to zakóduje. Využij ji."
+    },
+    {
+      trigger:"Narazí na nevhodný obsah na tabletu nebo telefonu",
+      dite:"»Tati, viděl jsem na YouTube divné video...« (nebo nepřijde a jen je divné)",
+      odpoved:"»Co jsi viděl? Můžeš mi to říct, nezlobím se na tebe, jen na video.« \u2014 Pak: »To bylo pro dospělé, ne pro tebe. Díky, žes mi to řekl/a.«",
+      note:"Pokud přijde samo \u2014 odměň to klidem. Pokud nepřijde \u2014 nezačínej trestáním, ale otevřenou otázkou. Cíl je, aby příště přišlo."
+    },
+    {
+      trigger:"Řekne, že se mu/jí líbí spolužák/spolužačka stejného pohlaví",
+      dite:"»Líbí se mi Honza.« (chlapec o chlapci) / »Mám ráda Evu.« (dívka o dívce)",
+      odpoved:"»To je hezké. Jaký/á je?«",
+      note:"Žádné: ‚ale vždyť jsi kluk'. Žádné překvapené mlčení. Zeptej se na tu osobu. Dej prostor."
+    },
+    {
+      trigger:"Ptá se, co je to gay",
+      dite:"»Ve škole říkali gay jako nadávku. Co to znamená?«",
+      odpoved:"»Gay je člověk, kterému se líbí stejné pohlaví. Někteří muži mají rádi muže, některé ženy mají rády ženy. To je přirozené. Jako nadávka to říkají lidi, kteří tomu nerozumí.«",
+      note:"Přímá, věcná odpověď bez dramatu. Dítě potřebuje vědět, že slovo není urážka \u2014 a proč ho někteří jako urážku používají."
+    },
+    {
+      trigger:"Ptá se proč má soused/kamarád dva táty nebo dvě mámy",
+      dite:"»Proč má Adam dvě mámy? To je divné, ne?«",
+      odpoved:"»Ne, to není divné. Rodiny jsou různé. Někdo má mámu a tátu, někdo jen mámu nebo jen tátu, někdo dvě mámy nebo dva táty. Důležité je, že se v rodině mají rádi.«",
+      note:"Bez ideologie, bez přednášky. Prostý fakt."
+    }
+  ],
+  pozor:[
+    "Tohle je klíčové okno: dítě ještě věří rodičům víc než vrstevníkům. Za 2\u20133 roky se to otočí. Teď je čas vytvořit zvyk, že se doma o těhle věcech mluví.",
+    "Pokud reaguješ pohoršením nebo smíchem, dítě si zapamatuje: tohle téma se doma neřeší. A příště nepřijde."
+  ],
+  knihy:[
+    {nazev:"Velká kniha o těle (DK)", popis:"Vědecky přesná, hravá \u2014 pro zvídavé děti. Funguje jako referenční kniha."},
+    {nazev:"Co se děje s mým tělem \u2014 Lynda Madaras", popis:"Verze pro dívky i pro chlapce. Praktická, přímá."},
+    {nazev:"Rodiny jsou různé (různí autoři)", popis:"Pro děti 6\u20138 let \u2014 rozmanitost rodinných struktur."}
+  ],
+  worksheets:[
+    {
+      nazev:"Pravda nebo mýtus?",
+      popis:"12 tvrzení, která děti slýchají od spolužáků \u2014 dítě (s rodičem) rozhodne, co je pravda.",
+      obsah: ws_pravda_6_8
+    },
+    {
+      nazev:"Co udělám, když...?",
+      popis:"Komiksové situace: co dítě udělá, když uvidí nevhodný obsah, když ho někdo tlačí...",
+      obsah: ws_cosudela_6_8
+    }
+  ]
+},
+
+/* ═══════════════════════════════════════════════════ 9–11 LET */
+"9-11": {
+  label:"9\u201311 let", emoji:"\uD83C\uDFF5\uFE0F",
+  co_resi:"Puberta buď začala, nebo začne brzy. Dítě to může vědět, nebo být zaskočené. Dívky se průměrně mění dřív než chlapci. Zájem o romantiku, první zamilování, potřeba soukromí. Taky první kontakt s pornografií \u2014 statisticky v ČR okolo 10\u201311 let.",
+  situace:[
+    {
+      trigger:"Dívce se objeví první menstruace — nebylo to probráno předem",
+      dite:"(přijde vystrašená, nebo to tají)",
+      odpoved:"»Hele, to je menstruace. Je to normální, začalo to tvé tělo dospívat. Jsem ráda/rád, že jsi přišla. Ukážu ti, co dělat.«",
+      note:"Ideálně to probrat předem \u2014 kolem 8\u20139 let. Pokud nestihneš: přijmi to bez dramatiky, bez ‚já ti to říkala', bez smíchu."
+    },
+    {
+      trigger:"Chlapci se stydí za erekci nebo noční poluce",
+      dite:"»Proč se mi to děje?« / (neřekne nic, jen je zmatený)",
+      odpoved:"»To je normální součást dospívání. Tělo se připravuje na dospělost. Stane se to každému. Není na tom nic špatného.«",
+      note:"Toto je vhodné říct preventivně, dřív než to nastane. Chlapci jsou na tohle velmi špatně připraveni a stydí se."
+    },
+    {
+      trigger:"Dítě se ptá co je pornografie (nebo ho najdeš jak ji kouká)",
+      dite:"»Co to bylo za video?« / »Všichni to ve třídě viděli.«",
+      odpoved:"»Pornografie jsou filmy pro dospělé o sexu. Nejsou to návody jak to funguje \u2014 jsou to filmy, ne realita. Herci hrají roli. Ve skutečném životě to tak nevypadá.«",
+      note:"Nepanikuj, nezlob se. Zájem je normální. Ale dítě potřebuje vědět, že porno je stylizované a nerealistické \u2014 stejně jako akční filmy nejsou návod k jízdě autem."
+    },
+    {
+      trigger:"Dítě se bojí, že je divné, protože se mu ještě nikdo nelíbí",
+      dite:"»Všichni říkají kdo se jim líbí, ale mně se nikdo nelíbí. Jsem divný/á?«",
+      odpoved:"»Vůbec ne. Každý to cítí jindy. Někdo dřív, někdo pozdějc. Není žádné ‚musí' a ‚mělo by'.«",
+      note:"Taky: není povinnost mít zájem o opačné pohlaví. Pokud dítě zmiňuje zájem o stejné pohlaví \u2014 přijmi to stejně klidně."
+    },
+    {
+      trigger:"Dívka nebo chlapec říká, že se necítí dobře ve svém těle / pohlaví",
+      dite:"»Já nejsem holka.« / »Moje tělo mi nesedí.«",
+      odpoved:"»To slyším. Jak to myslíš? Chceš mi o tom říct víc?« \u2014 a naslouchej bez přesvědčování.",
+      note:"Tohle není fáze, přes kterou se ‚přeroste'. Může to být \u2014 nebo nemusí. Dítě potřebuje vědět, že to může říct a ty ho neodsoudíš."
+    }
+  ],
+  pozor:[
+    "Průměrný věk první expozice pornografii v ČR je mezi 10\u201311 lety. Pokud o tom doma nemluvíte, dítě si vytváří představu o sexu podle pornografie.",
+    "Dítě v tomto věku potřebuje soukromí \u2014 ale také ví, že může přijít. Tyhle dvě věci nejsou v rozporu. Klepej na dveře, neptej se na detaily, ale zůstaň dostupný/á."
+  ],
+  knihy:[
+    {nazev:"Puberta \u2014 Anke Napp", popis:"Pro 8\u201312 let, věcná, ilustrovaná, bez pátosu. Dobrá pro obě pohlaví."},
+    {nazev:"Holčičí průvodce pubertou (American Girl)", popis:"Velmi oblíbená u dívek. Praktická, hravá."},
+    {nazev:"Chlapecký průvodce pubertou \u2014 různí autoři", popis:"Pro chlapce \u2014 tělesné změny, emoce, vztahy. Méně titulů než pro dívky, ale existují."},
+    {nazev:"Jsem kdo jsem \u2014 různí autoři (LGBTQ+ pro děti)", popis:"Pro děti, které se ptají na identitu a orientaci \u2014 nebo mají kamaráda/sourozence, který se ptá."}
+  ],
+  worksheets:[
+    {
+      nazev:"Moje tělo se mění",
+      popis:"Přehled fyzických změn u dívek a chlapců \u2014 co přijde, kdy a proč. S prostorem pro otázky.",
+      obsah: ws_zmeny_9_11
+    },
+    {
+      nazev:"Moje hranice",
+      popis:"Pracovní list: co mi vadí, co mi nevadí, jak říct ne \u2014 pro diskusi s rodičem.",
+      obsah: ws_hranice_9_11
+    }
+  ]
+},
+
+/* ═══════════════════════════════════════════════════ 12–14 LET */
+"12-14": {
+  label:"12\u201314 let", emoji:"\uD83C\uDF38",
+  co_resi:"Vztahy, první polibky, zájem o intimitu. Pornografie \u2014 naprostá většina dětí ji v tomto věku pravidelně vidí. Identita a orientace \u2014 mnozí si v tomto věku uvědomují, že jsou gay, bisexuální nebo trans. Sociální sítě a online bezpečí. Souhlas.",
+  situace:[
+    {
+      trigger:"Teenager oznámí, že je gay / bisexuální / trans",
+      dite:"»Mámo, musím ti něco říct... Líbí se mi holky.« (dívka) / »Myslím, že jsem gay.«",
+      odpoved:"»Díky, že jsi mi to řekl/a. Miluji tě a to se nemění. Chceš o tom mluvit víc?«",
+      note:"Tohle je coming out \u2014 jedno z nejodvážnějších sdělení, které teenager může udělat. Tvoje první reakce se mu/jí bude pamatovat celý život. Pak teprve otázky."
+    },
+    {
+      trigger:"Najdeš pornografii v historii prohlížeče nebo telefonu",
+      dite:"(neví, že víš)",
+      odpoved:"»Všiml/a jsem si, že jsi koukal/a na porno. Nechci tě trestat. Chci si o tom promluvit, protože porno neřekne o sexu pravdu.«",
+      note:"Nezačínej trestem. Zájem je normální. Ale musíte si promluvit o tom, co porno je (fantasy pro dospělé) a co není (návod, norma, realita)."
+    },
+    {
+      trigger:"Kamarád nebo spolužák vyvíjí tlak",
+      dite:"»Všichni ve třídě už to zkoušeli. Říkal mi, že jsem dítě.«",
+      odpoved:"»Kdo tě do toho tlačí a říká ti, že jsi dítě \u2014 ten se zachová jako dítě. Dospělý chování respektuje tvoje ‚ne' bez přesvědčování.«",
+      note:"Souhlas se dá vzít zpět. ‚Ne' uprostřed situace je stále platné. Tenhle rozhovor musí proběhnout předem, ne až po situaci."
+    },
+    {
+      trigger:"Teenager přijde s otázkou: co je sex?",
+      dite:"»Vím co je sex, ale... jak to vlastně funguje? Jaký to je?«",
+      odpoved:"»Sex je fyzická blízkost mezi lidmi, kteří chtějí oba. Může být příjemný, ale záleží na tom, jestli oba chtějí, jestli si věří, jestli jsou připravení.«",
+      note:"Neodkládej na ‚až budeš větší'. Je větší. Tyhle otázky jsou legitimní. Pokud neodpovíš ty, odpoví porno nebo kamarádi."
+    },
+    {
+      trigger:"Teenager říká, že se mu/jí nelíbí vlastní tělo",
+      dite:"»Jsem tlustá.« / »Jsem malý, holky se na mě ani nepodívají.«",
+      odpoved:"»Slyším, že se v těle necítíš dobře. To je těžké. Chci pochopit víc \u2014 jak to myslíš?«",
+      note:"Neopravuj hned. ‚Ale ty jsi krásná!' nezabírá. Nejdřív naslouchej. Pak teprve, jestli situace trvá, hledej pomoc."
+    }
+  ],
+  pozor:[
+    "Coming out je pro teenagera obrovský krok. Pokud reagujete panikou, odmítnutím nebo ‚to přejde' \u2014 teenager to slyší jako: nesmím být kdo jsem. Následky bývají vážné.",
+    "Nereaguj panikou na to, co zjistíš. Pokud teenager ví, že rodič zpanikuje nebo začne trestat \u2014 přestane říkat pravdu. A přijde o jediného dospělého, který mu mohl pomoct."
+  ],
+  knihy:[
+    {nazev:"Amaze.org / YouTube kanál", popis:"Kvalitní videa pro teenagery \u2014 vztahy, souhlas, tělo, orientace. Bez moralizování."},
+    {nazev:"Dan Siegel: Bouřlivá léta", popis:"Pro rodiče: proč se teenage mozek chová jak se chová."},
+    {nazev:"Průvodce pro rodiče LGBT+ dětí \u2014 různí autoři (CZ)", popis:"Praktický průvodce pro rodiče po coming outu dítěte."}
+  ],
+  worksheets:[
+    {
+      nazev:"Co je souhlas? (karty na diskusi)",
+      popis:"8 karet se situacemi \u2014 teenager rozhoduje, zda je souhlas přítomný a co by udělal/a.",
+      obsah: ws_souhlas_12_14
+    },
+    {
+      nazev:"Zdravý a nezdravý vztah",
+      popis:"Dvě strany: signály zdravého vztahu vs. varovné signály. Ke stažení a diskusi.",
+      obsah: ws_vztah_12_14
+    }
+  ]
+},
+
+/* ═══════════════════════════════════════════════════ 15+ */
+"15+": {
+  label:"15+ let", emoji:"\uD83E\uDD8B",
+  co_resi:"Aktivní nebo blížící se sexuální život. Antikoncepce, STI, souhlas v praxi. Identita a vztahy. Digitální bezpečí \u2014 intimní fotky, online predátoři. Emoční dynamika intimních vztahů.",
+  situace:[
+    {
+      trigger:"Teenager oznámí, že chce začít sexuálně žít / začal/a",
+      dite:"»Mami... chodím s někým a myslím, že to chceme zkusit.«",
+      odpoved:"»Díky za důvěru. Mluvme o tom prakticky \u2014 antikoncepce, kondom. Ne proto, že to schvaluju nebo neschvaluju, ale proto, že chci, aby ses měl/a dobře.«",
+      note:"Tohle je obrovský krok, že ti teenager tohle řekl. Pokud začneš moralizovat, příště nepřijde. Mluv o bezpečí, ne o morálce."
+    },
+    {
+      trigger:"Teenager se dostane do situace bez souhlasu",
+      dite:"»Říkal jsem/říkala jsem ne, ale stejně to udělal.«",
+      odpoved:"»To, co popisuješ, je sexuální nátlak. Není to tvoje chyba. Vůbec. Jak se teď cítíš? Chceš pomoct?«",
+      note:"Nezačínej otázkami ‚proč jsi tam šel/šla' nebo ‚co jsi měl/a na sobě'. To nejsou relevantní otázky. Tou relevantní je, co teenager potřebuje teď."
+    },
+    {
+      trigger:"Teenager dostane žádost o intimní fotku",
+      dite:"»Chce po mně fotku... říká, že mi věří.«",
+      odpoved:"»Fotka, která je jednou poslaná, se nedá vzít zpět. Nikdy. Ani od partnera. Pokud ti někdo říká, že ti věří a přesto chce fotku \u2014 věří si, ne tobě.«",
+      note:"Toto je potřeba říct preventivně, ne až po situaci. Pokud fotka už existuje a dítě se bojí \u2014 nabídni pomoc, ne trest."
+    },
+    {
+      trigger:"Teenager si není jistý/á svou sexuální orientací nebo identitou",
+      dite:"»Nevím jestli jsem gay nebo ne. Nevím co jsem.«",
+      odpoved:"»To je v pořádku. Nemusíš to vědět hned. Identita se vyvíjí. Ať to vyjde jakkoliv \u2014 jsem tady.«",
+      note:"Žádné ‚to přejde'. Žádné ‚to jen zkoušíš'. Přijetí neznamená, že ‚podporuješ' nějakou volbu \u2014 orientace není volba. Přijetí znamená, že miluješ své dítě."
+    },
+    {
+      trigger:"Teenager je v toxickém vztahu",
+      dite:"»On/Ona říká, že mě má rád/a, ale kontroluje mě / žárlí na každého / píše mi 50 zpráv za hodinu.«",
+      odpoved:"»To co popisuješ zní jako žárlivost, ne láska. Zdravý vztah nevyžaduje, abys byl/a neustále dosažitelný/á a vysvětloval/a každý krok.«",
+      note:"Teenager musí sám/sama dospět k rozhodnutí opustit vztah. Tvůj úkol je, aby věděl/a co je normální \u2014 a že se má kam vrátit."
+    }
+  ],
+  pozor:[
+    "V tomto věku je rodič průvodce, ne hlídač. Kontrola a zákazy nevedly k bezpečnějšímu chování \u2014 vedly jen k tomu, že teenager přestal říkat pravdu.",
+    "Pokud teenager přijde s těžkou situací (nátlak, zneužití, intimní fotky) \u2014 první reakce musí být přijetí a podpora, ne trest. Jinak příště nepřijde."
+  ],
+  knihy:[
+    {nazev:"Emily Nagoski: Jak funguje ženská sexualita", popis:"Pro starší dívky a jejich maminky. Vědecky podložená, osvobozující."},
+    {nazev:"The Teenage Brain \u2014 Frances Jensen", popis:"Pro rodiče \u2014 neurověda o teenagerském mozku."},
+    {nazev:"Come As You Are \u2014 Emily Nagoski (EN)", popis:"Starší verze pro dospívající \u2014 sexualita, tělo, sebepoznání."}
+  ],
+  worksheets:[
+    {
+      nazev:"Signály zdravého vztahu",
+      popis:"Kontrolní seznam: co zdravý vztah má a co nemá mít \u2014 pro teenagera i rodiče.",
+      obsah: ws_zdravy_vztah_15
+    },
+    {
+      nazev:"Praktický průvodce: antikoncepce a ochrana",
+      popis:"Přehled metod antikoncepce a ochrany před STI \u2014 věcně, bez moralizování.",
+      obsah: ws_antikoncepce_15
+    }
+  ]
+}
+
+}; // END DATA
+
+/* ═══════════════════════════════════════════════════ PRACOVNÍ LISTY HTML */
+
+function ws_telo_2_4() { return `
+<h2>Pojmenuj své tělo</h2>
+<p class="intro">Prohlédni si obrázky a doplň nebo řekni správný název každé části těla.</p>
+<div class="two-col">
+  <div class="figure-box">
+    <div class="figure-title">🧒 Chlapec</div>
+    <div class="body-parts">
+      <div class="part"><span class="line"></span> Hlava</div>
+      <div class="part"><span class="line"></span> Rameno</div>
+      <div class="part"><span class="line"></span> Ruka</div>
+      <div class="part"><span class="line"></span> Bříško</div>
+      <div class="part"><span class="line"></span> Penis</div>
+      <div class="part"><span class="line"></span> Noha</div>
+    </div>
+    <div class="big-body">🧒</div>
+  </div>
+  <div class="figure-box">
+    <div class="figure-title">👧 Dívka</div>
+    <div class="body-parts">
+      <div class="part"><span class="line"></span> Hlava</div>
+      <div class="part"><span class="line"></span> Rameno</div>
+      <div class="part"><span class="line"></span> Ruka</div>
+      <div class="part"><span class="line"></span> Bříško</div>
+      <div class="part"><span class="line"></span> Vulva</div>
+      <div class="part"><span class="line"></span> Noha</div>
+    </div>
+    <div class="big-body">👧</div>
+  </div>
+</div>
+<div class="remember-box">
+  <strong>Zapamatuj si:</strong> Všechny části těla mají správný název. Nikdy se za ně nestydíme.
+</div>
+`; }
+
+function ws_doteky_4_6() { return `
+<h2>Bezpečné a nebezpečné doteky</h2>
+<p class="intro">Prohlédni si každou situaci. Zakroužkuj 😊 když je dotyk v pořádku, nebo 😟 když není.</p>
+<div class="situations">
+  <div class="sit-row"><div class="sit-desc">Maminka tě obejme na dobrou noc.</div><div class="sit-choice">😊 &nbsp;&nbsp; 😟</div></div>
+  <div class="sit-row"><div class="sit-desc">Kamarád tě silou líbá, i když říkáš ne.</div><div class="sit-choice">😊 &nbsp;&nbsp; 😟</div></div>
+  <div class="sit-row"><div class="sit-desc">Lékař tě vyšetřuje a maminka nebo tatínek jsou s tebou.</div><div class="sit-choice">😊 &nbsp;&nbsp; 😟</div></div>
+  <div class="sit-row"><div class="sit-desc">Cizí člověk tě chce pohladit a ty nechceš.</div><div class="sit-choice">😊 &nbsp;&nbsp; 😟</div></div>
+  <div class="sit-row"><div class="sit-desc">Táta tě poplácá po zádech a oslaví s tebou gól.</div><div class="sit-choice">😊 &nbsp;&nbsp; 😟</div></div>
+  <div class="sit-row"><div class="sit-desc">Někdo tě sahá na soukromé části a říká, že to je tajemství.</div><div class="sit-choice">😊 &nbsp;&nbsp; 😟</div></div>
+</div>
+<div class="rule-box">
+  <strong>Pravidlo:</strong> Tvoje tělo patří tobě. Nikdo ti nesmí sahat na soukromé části — kromě lékaře s rodičem. A žádné tajemství o tělech není bezpečné.
+</div>
+`; }
+
+function ws_pravidla_4_6() { return `
+<h2>4 pravidla mého těla</h2>
+<p class="intro">Tyhle čtyři věci jsou důležité. Můžeš si je vymalovat a pověsit v pokoji.</p>
+<div class="rules-grid">
+  <div class="rule-card"><div class="rule-num">1</div><div class="rule-icon">🛡️</div><div class="rule-text">Moje tělo<br><strong>patří mně</strong></div></div>
+  <div class="rule-card"><div class="rule-num">2</div><div class="rule-icon">🙅</div><div class="rule-text">Mohu říct<br><strong>NE</strong> — i dospělému</div></div>
+  <div class="rule-card"><div class="rule-num">3</div><div class="rule-icon">🔒</div><div class="rule-text">Tajemství o tělech<br><strong>není bezpečné</strong></div></div>
+  <div class="rule-card"><div class="rule-num">4</div><div class="rule-icon">💬</div><div class="rule-text">Mohu říct<br><strong>rodičům všechno</strong></div></div>
+</div>
+`; }
+
+function ws_pravda_6_8() { return `
+<h2>Pravda nebo mýtus?</h2>
+<p class="intro">Přečti každou větu. Co si myslíš — je to pravda, nebo mýtus? Zakroužkuj. Pak si odpovědi projděte s rodičem.</p>
+<div class="quiz">
+  <div class="q-row"><div class="q-text">Holky nemohou otěhotnět při prvním pohlavním styku.</div><div class="q-ans">P &nbsp; M</div></div>
+  <div class="q-row"><div class="q-text">Gay lidi si svoji orientaci vybrali.</div><div class="q-ans">P &nbsp; M</div></div>
+  <div class="q-row"><div class="q-text">Pokud tě někdo dotýká nepříjemně, je to vždy tvoje chyba.</div><div class="q-ans">P &nbsp; M</div></div>
+  <div class="q-row"><div class="q-text">Dívky a chlapci mají různá těla, ale stejná práva.</div><div class="q-ans">P &nbsp; M</div></div>
+  <div class="q-row"><div class="q-text">Pornografie ukazuje, jak sex doopravdy vypadá.</div><div class="q-ans">P &nbsp; M</div></div>
+  <div class="q-row"><div class="q-text">Mohu říct ne — i kamarádovi, i partnerovi.</div><div class="q-ans">P &nbsp; M</div></div>
+  <div class="q-row"><div class="q-text">Někteří lidé se necítí jako holka ani jako kluk — a to je v pořádku.</div><div class="q-ans">P &nbsp; M</div></div>
+  <div class="q-row"><div class="q-text">Rodičům mohu říct, co se děje — i kdyby to bylo divné.</div><div class="q-ans">P &nbsp; M</div></div>
+</div>
+<div class="answer-key">
+  <strong>Správné odpovědi:</strong> Mýtus, Mýtus, Mýtus, Pravda, Mýtus, Pravda, Pravda, Pravda
+</div>
+`; }
+
+function ws_cosudela_6_8() { return `
+<h2>Co udělám, když...?</h2>
+<p class="intro">Přečti každou situaci a napiš nebo řekni, co bys udělal/a.</p>
+<div class="scenarios">
+  <div class="sc-box"><div class="sc-q">Na YouTube se ti náhodně zobrazí video, kde jsou nazí lidé a děje se tam divné věci.</div><div class="sc-a">Udělám: <span class="dotline"></span></div></div>
+  <div class="sc-box"><div class="sc-q">Kamarád říká, ať mu pošleš fotografii bez trička. Říká, že jinak nejste kamarádi.</div><div class="sc-a">Udělám: <span class="dotline"></span></div></div>
+  <div class="sc-box"><div class="sc-q">Starší spolužák ti říká, ať si přisednete ve škole a sahá ti na nohu.</div><div class="sc-a">Udělám: <span class="dotline"></span></div></div>
+  <div class="sc-box"><div class="sc-q">Na internetu ti píše někdo, koho neznáš, a chce se s tebou setkat.</div><div class="sc-a">Udělám: <span class="dotline"></span></div></div>
+</div>
+`; }
+
+function ws_zmeny_9_11() { return `
+<h2>Moje tělo se mění — co přijde a proč</h2>
+<div class="two-col">
+  <div class="change-col">
+    <h3>👧 U dívek</h3>
+    <ul>
+      <li>Prsa začínají růst (8–13 let)</li>
+      <li>Ochlupení — podpaží, stydká oblast</li>
+      <li>Tělo se zaobluje — boky, stehna</li>
+      <li>První menstruace (průměrně 12–13 let)</li>
+      <li>Pot, akné</li>
+      <li>Emoce — intenzivnější, rychlejší</li>
+    </ul>
+  </div>
+  <div class="change-col">
+    <h3>🧒 U chlapců</h3>
+    <ul>
+      <li>Růst výšky — rychlý skok</li>
+      <li>Hlas se láme (10–15 let)</li>
+      <li>Ochlupení — tělo, tvář</li>
+      <li>Penis a varlata rostou</li>
+      <li>Erekce — kdykoliv, bez varování</li>
+      <li>Noční poluce — normální, ne nemoc</li>
+      <li>Pot, akné</li>
+    </ul>
+  </div>
+</div>
+<div class="note-box">
+  <strong>Důležité:</strong> Všechny tyto změny jsou normální. Každý je zažije trochu jindy a jinak rychle. Neexistuje správný čas — existuje tvůj čas.
+</div>
+<div class="question-space">
+  <strong>Moje otázky pro rodiče:</strong>
+  <div class="lines"></div>
+</div>
+`; }
+
+function ws_hranice_9_11() { return `
+<h2>Moje hranice</h2>
+<p class="intro">Hranice jsou věci, které nám vadí nebo nevadí. Každý má jiné hranice — a všechny jsou platné.</p>
+<div class="boundary-table">
+  <div class="bt-header"><div>Situace</div><div>Vadí mi</div><div>Nevadí mi</div><div>Záleží na situaci</div></div>
+  <div class="bt-row"><div>Někdo mě obejme bez ptaní</div><div>☐</div><div>☐</div><div>☐</div></div>
+  <div class="bt-row"><div>Kamarád čte moje zprávy</div><div>☐</div><div>☐</div><div>☐</div></div>
+  <div class="bt-row"><div>Někdo mi dá přezdívku</div><div>☐</div><div>☐</div><div>☐</div></div>
+  <div class="bt-row"><div>Fotí mě bez ptaní</div><div>☐</div><div>☐</div><div>☐</div></div>
+  <div class="bt-row"><div>Někdo mi říká, co mám na sobě mít</div><div>☐</div><div>☐</div><div>☐</div></div>
+  <div class="bt-row"><div>Kamarád mluví o mně za mými zády</div><div>☐</div><div>☐</div><div>☐</div></div>
+</div>
+<div class="reflect-box">
+  <strong>Co udělám, když mi někdo překračuje hranice?</strong>
+  <div class="lines"></div>
+</div>
+`; }
+
+function ws_souhlas_12_14() { return `
+<h2>Co je souhlas?</h2>
+<p class="intro">Souhlas znamená, že <strong>oba</strong> opravdu chtějí — svobodně, bez tlaku, kdykoli ho mohou vzít zpět.</p>
+<div class="consent-cards">
+  <div class="cc"><div class="cc-q">Tereza a Honza si píší. Honza říká: „Pojď ke mně, víš o čem mluvím." Tereza mlčí a přijde.</div><div class="cc-ans">Je to souhlas? <strong>NE</strong> — mlčení není souhlas.</div></div>
+  <div class="cc"><div class="cc-q">Klára řekla svému příteli ano, ale v průběhu říká „stop". On pokračuje.</div><div class="cc-ans">Je to souhlas? <strong>NE</strong> — souhlas lze kdykoli vzít zpět.</div></div>
+  <div class="cc"><div class="cc-q">Marek a Lukáš se baví o tom, co chtějí, oba souhlasí a kdykoli mohou říct ne.</div><div class="cc-ans">Je to souhlas? <strong>ANO</strong> — jasný, svobodný, vzájemný.</div></div>
+  <div class="cc"><div class="cc-q">Petra je opilá. Tomáš říká, že svolila.</div><div class="cc-ans">Je to souhlas? <strong>NE</strong> — opilý člověk nemůže platně souhlasit.</div></div>
+  <div class="cc"><div class="cc-q">Ela řekne svému příteli, že nechce posílat intimní fotku. On říká: „Když mě máš ráda, pošleš."</div><div class="cc-ans">Je to souhlas? <strong>NE</strong> — vydírání a manipulace nejsou souhlas.</div></div>
+</div>
+`; }
+
+function ws_vztah_12_14() { return `
+<h2>Zdravý a nezdravý vztah</h2>
+<div class="two-col">
+  <div class="healthy-col">
+    <h3 style="color:#2d4a3e">✅ Zdravý vztah</h3>
+    <ul>
+      <li>Oba se cítí svobodně říct ne</li>
+      <li>Respektujete vzájemně kamarády a zájmy</li>
+      <li>Hádáte se, ale bez křiku a ponižování</li>
+      <li>Máš čas na sebe, rodinu, kamarády</li>
+      <li>Cítíš se v bezpečí</li>
+      <li>Partner tě nezesměšňuje</li>
+      <li>Soukromí je respektováno</li>
+    </ul>
+  </div>
+  <div class="toxic-col">
+    <h3 style="color:#c8280a">⚠️ Varovné signály</h3>
+    <ul>
+      <li>Partner kontroluje, kde jsi a s kým</li>
+      <li>Žárlí přehnaně nebo tě izoluje od přátel</li>
+      <li>Říká ti, co si obléct nebo jak vypadat</li>
+      <li>Čte tvoje zprávy bez ptaní</li>
+      <li>Vyhrožuje (i sebou samým/samou)</li>
+      <li>Ponižuje tě — i jako ‚žert'</li>
+      <li>Tlačí tě do věcí, které nechceš</li>
+    </ul>
+  </div>
+</div>
+<div class="note-box" style="margin-top:20px">
+  Pokud poznáváš varovné signály ve svém vztahu — popiš to. Komu bys o tom mohl/a říct?
+  <div class="lines"></div>
+</div>
+`; }
+
+function ws_zdravy_vztah_15() { return `
+<h2>Signály zdravého vztahu</h2>
+<p class="intro">Projdi si seznam. Zaškrtni, co ve svém vztahu poznáváš — nebo co chceš v budoucím vztahu mít.</p>
+<div class="checklist">
+  <label><input type="checkbox"> Partner/ka respektuje moje hranice</label>
+  <label><input type="checkbox"> Můžu říct ne bez strachu z reakce</label>
+  <label><input type="checkbox"> Mám svůj čas, kamarády, zájmy</label>
+  <label><input type="checkbox"> Hádáme se, ale nekřičíme, neponiůžujeme</label>
+  <label><input type="checkbox"> Souhlas je vždy jasný a svobodný</label>
+  <label><input type="checkbox"> Cítím se v bezpečí — fyzicky i emočně</label>
+  <label><input type="checkbox"> Mohu mluvit o problémech bez dramatizace</label>
+  <label><input type="checkbox"> Partner/ka podporuje moje cíle</label>
+  <label><input type="checkbox"> Nevnucuje mi svůj pohled za každou cenu</label>
+  <label><input type="checkbox"> Nezdílí naše soukromé věci bez svolení</label>
+</div>
+<div class="note-box" style="margin-top:20px">
+  Co bys ve svém (budoucím) vztahu netoleroval/a?
+  <div class="lines"></div>
+</div>
+`; }
+
+function ws_antikoncepce_15() { return `
+<h2>Antikoncepce a ochrana — přehled</h2>
+<p class="intro">Věcně, bez moralizování. Informace, ne rozhodnutí za tebe.</p>
+<table class="anti-table">
+  <tr><th>Metoda</th><th>Chrání před STI?</th><th>Jak spolehlivá?</th><th>Poznámka</th></tr>
+  <tr><td><strong>Kondom (mužský)</strong></td><td>✅ Ano</td><td>~98 % správně</td><td>Jediná metoda, která chrání před STI</td></tr>
+  <tr><td><strong>Kondom (ženský)</strong></td><td>✅ Ano</td><td>~95 % správně</td><td>Méně dostupný, ale platná možnost</td></tr>
+  <tr><td><strong>Hormonální antikoncepce</strong></td><td>❌ Ne</td><td>~99 % správně</td><td>Předpis od gynekologa, různé formy</td></tr>
+  <tr><td><strong>Nitroděložní tělísko</strong></td><td>❌ Ne</td><td>&gt;99 %</td><td>Dlouhodobé, od gynekologa</td></tr>
+  <tr><td><strong>Nouzová antikoncepce</strong></td><td>❌ Ne</td><td>~85 % do 72 h</td><td>Není náhrada za pravidelnou AK</td></tr>
+</table>
+<div class="note-box" style="margin-top:16px">
+  <strong>Důležité:</strong> Kombinace kondomu + hormonální antikoncepce poskytuje nejlepší ochranu. Na STI testování není ostuda — je to zodpovědnost.
+</div>
+<div class="note-box" style="margin-top:10px;background:#fff8f0;border-color:#f0d8b0">
+  <strong>Kde hledat pomoc v ČR:</strong> Gynekolog, praktický lékař, poradna pro rodinu a vztahy, Linky pro mladé: 116 111
+</div>
+`; }
+
+/* ═══════════════════════════════════════════════════ PRINT STYLES */
+var PRINT_STYLES = `
+  body{font-family:'Segoe UI',sans-serif;color:#1a2820;padding:30px;max-width:750px;margin:0 auto}
+  h2{font-size:22px;color:#2d4a3e;margin-bottom:6px;border-bottom:2px solid #2d4a3e;padding-bottom:6px}
+  h3{font-size:16px;margin:16px 0 8px}
+  .intro{color:#555;margin-bottom:20px;font-size:15px;line-height:1.6}
+  .two-col{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin:16px 0}
+  .figure-box{border:1px solid #ddd;border-radius:8px;padding:16px;text-align:center}
+  .figure-title{font-weight:700;font-size:16px;margin-bottom:12px}
+  .big-body{font-size:80px;margin:10px 0}
+  .body-parts{text-align:left;font-size:14px;line-height:2}
+  .part{display:flex;align-items:center;gap:8px}
+  .line{display:inline-block;width:80px;border-bottom:1px solid #999;flex-shrink:0}
+  .remember-box,.rule-box,.note-box{background:#e8f2ed;border-left:3px solid #2d4a3e;padding:12px 16px;border-radius:0 8px 8px 0;margin-top:20px;font-size:14px}
+  .answer-key{background:#fff5e8;border-left:3px solid #c8860a;padding:12px 16px;border-radius:0 8px 8px 0;margin-top:16px;font-size:13px}
+  .situations,.scenarios{display:flex;flex-direction:column;gap:10px}
+  .sit-row{display:flex;justify-content:space-between;align-items:center;padding:10px 14px;border:1px solid #ddd;border-radius:8px;gap:16px}
+  .sit-desc{flex:1;font-size:14px}
+  .sit-choice{font-size:18px;white-space:nowrap}
+  .rules-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:20px 0}
+  .rule-card{border:2px solid #2d4a3e;border-radius:12px;padding:20px;text-align:center;position:relative}
+  .rule-num{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:#2d4a3e;color:#fff;width:24px;height:24px;border-radius:50%;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center}
+  .rule-icon{font-size:32px;margin-bottom:8px}
+  .rule-text{font-size:14px;line-height:1.5}
+  .quiz{display:flex;flex-direction:column;gap:8px;margin:16px 0}
+  .q-row{display:flex;justify-content:space-between;align-items:center;padding:10px 14px;border:1px solid #ddd;border-radius:8px;gap:16px}
+  .q-text{flex:1;font-size:14px}
+  .q-ans{font-weight:700;white-space:nowrap;color:#2d4a3e}
+  .sc-box{border:1px solid #ddd;border-radius:8px;padding:14px;margin-bottom:10px}
+  .sc-q{font-size:14px;margin-bottom:10px;font-style:italic}
+  .sc-a{font-size:13px;color:#555}
+  .dotline{display:inline-block;width:200px;border-bottom:1px solid #999;vertical-align:bottom}
+  .change-col ul{list-style:none;padding:0}
+  .change-col li{padding:5px 0;border-bottom:1px solid #eee;font-size:14px}
+  .change-col li::before{content:'•  ';color:#2d4a3e}
+  .question-space,.reflect-box{margin-top:20px}
+  .lines{height:80px;border-bottom:1px solid #ccc;margin-top:8px}
+  .boundary-table{margin:16px 0}
+  .bt-header,.bt-row{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:8px;padding:8px;font-size:13px}
+  .bt-header{font-weight:700;background:#e8f2ed;border-radius:6px}
+  .bt-row{border-bottom:1px solid #eee}
+  .consent-cards{display:flex;flex-direction:column;gap:12px;margin:16px 0}
+  .cc{border:1px solid #ddd;border-radius:8px;padding:14px}
+  .cc-q{font-size:14px;margin-bottom:8px;font-style:italic}
+  .cc-ans{font-size:13px;color:#2d4a3e}
+  .healthy-col ul,.toxic-col ul{list-style:none;padding:0}
+  .healthy-col li,.toxic-col li{padding:5px 0;border-bottom:1px solid #eee;font-size:14px}
+  .healthy-col{background:#f0f9f5;padding:16px;border-radius:8px}
+  .toxic-col{background:#fff5f5;padding:16px;border-radius:8px}
+  .checklist{display:flex;flex-direction:column;gap:10px;margin:16px 0}
+  .checklist label{display:flex;align-items:center;gap:10px;font-size:14px;cursor:pointer}
+  .anti-table{width:100%;border-collapse:collapse;font-size:13px;margin:16px 0}
+  .anti-table th{background:#2d4a3e;color:#fff;padding:8px 10px;text-align:left}
+  .anti-table td{padding:8px 10px;border-bottom:1px solid #ddd}
+  .anti-table tr:nth-child(even) td{background:#f5faf8}
+  @media print{button{display:none}}
+`;
+
+function openWorksheet(fn, title) {
+  var content = fn();
+  var w = window.open('', '_blank');
+  w.document.write(`<!DOCTYPE html><html lang="cs"><head><meta charset="UTF-8"><title>${title}</title><style>${PRINT_STYLES}</style></head><body><button onclick="window.print()" style="margin-bottom:20px;padding:10px 20px;background:#2d4a3e;color:#fff;border:none;border-radius:8px;cursor:pointer;font-size:14px">🖨️ Vytisknout</button>${content}</body></html>`);
+  w.document.close();
+}
+
+/* ═══════════════════════════════════════════════════ APP LOGIC */
 
 var currentAge = null;
-var currentTab = "jak";
+var currentTab = "situace";
 
 function init() {
   var grid = document.getElementById("ageGrid");
@@ -322,26 +859,23 @@ function init() {
 }
 
 function selectAge(key) {
-  // Remove active from all age buttons
-  var btns = document.querySelectorAll(".age-btn");
-  for (var i = 0; i < btns.length; i++) btns[i].classList.remove("on");
-  // Activate clicked
+  document.querySelectorAll(".age-btn").forEach(function(b){ b.classList.remove("on"); });
   document.getElementById("age-" + key).classList.add("on");
   currentAge = key;
-  currentTab = "jak";
+  currentTab = "situace";
   renderContent();
 }
 
 function selectTab(tab) {
   currentTab = tab;
-  // Update tab buttons
-  var tabs = document.querySelectorAll(".tab");
-  for (var i = 0; i < tabs.length; i++) tabs[i].classList.remove("on");
+  document.querySelectorAll(".tab").forEach(function(b){ b.classList.remove("on"); });
   document.getElementById("tab-" + tab).classList.add("on");
-  // Update panels
-  var panels = document.querySelectorAll(".panel");
-  for (var i = 0; i < panels.length; i++) panels[i].classList.remove("on");
+  document.querySelectorAll(".panel").forEach(function(p){ p.classList.remove("on"); });
   document.getElementById("p-" + tab).classList.add("on");
+}
+
+function escH(s) {
+  return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
 }
 
 function renderContent() {
@@ -349,63 +883,73 @@ function renderContent() {
   var d = DATA[currentAge];
 
   var tabDefs = [
-    { id: "jak",   icon: "💬", label: "Jak mluvit" },
-    { id: "pozor", icon: "⚠️", label: "Pozor na" },
-    { id: "knihy", icon: "📚", label: "Knihy" },
-    { id: "list",  icon: "📄", label: "Pracovní list" }
+    { id:"situace", icon:"💬", label:"Situace" },
+    { id:"pozor",   icon:"⚠️",  label:"Pozor na" },
+    { id:"knihy",   icon:"📚", label:"Knihy" },
+    { id:"listy",   icon:"📄", label:"Listy" }
   ];
 
-  var vetaHTML = "";
-  for (var i = 0; i < d.jak_mluvit.length; i++) {
-    var v = d.jak_mluvit[i];
-    vetaHTML += '<div class="veta"><div class="veta-q">' + escH(v.veta) + '</div><div class="veta-k">' + escH(v.kontext) + '</div></div>';
+  // Situace panel
+  var sitHTML = "";
+  for (var i = 0; i < d.situace.length; i++) {
+    var s = d.situace[i];
+    sitHTML += '<div class="sit">' +
+      '<div class="sit-trigger">' + escH(s.trigger) + '</div>' +
+      '<div class="sit-q">' + escH(s.dite) + '</div>' +
+      '<div class="sit-a"><strong>Možná odpověď:</strong> ' + escH(s.odpoved) + '</div>' +
+      '<div class="sit-note">' + escH(s.note) + '</div>' +
+      '</div>';
   }
 
+  // Pozor panel
+  var pozorHTML = "";
+  for (var i = 0; i < d.pozor.length; i++) {
+    pozorHTML += '<div class="pozor"><div class="pozor-h"><span>⚠️</span><div class="lbl">Na co si dát pozor</div></div><p>' + escH(d.pozor[i]) + '</p></div>';
+  }
+
+  // Knihy panel
   var knihyHTML = "";
   for (var i = 0; i < d.knihy.length; i++) {
     var k = d.knihy[i];
     knihyHTML += '<div class="kniha"><div class="kniha-ico">📖</div><div><div class="kniha-n">' + escH(k.nazev) + '</div><div class="kniha-p">' + escH(k.popis) + '</div></div></div>';
   }
 
-  var tabsHTML = "";
-  for (var i = 0; i < tabDefs.length; i++) {
-    var t = tabDefs[i];
-    var on = t.id === currentTab ? " on" : "";
-    tabsHTML += '<button class="tab' + on + '" id="tab-' + t.id + '" onclick="selectTab(\'' + t.id + '\')"><span class="ti">' + t.icon + '</span><span>' + t.label + '</span></button>';
+  // Pracovní listy panel
+  var listyHTML = "";
+  for (var i = 0; i < d.worksheets.length; i++) {
+    var wIdx = i;
+    var w = d.worksheets[i];
+    listyHTML += '<div class="wsheet" id="ws-' + currentAge + '-' + i + '">' +
+      '<div class="wsheet-ico">📄</div>' +
+      '<div class="wsheet-body">' +
+        '<div class="wsheet-n">' + escH(w.nazev) + '</div>' +
+        '<div class="wsheet-p">' + escH(w.popis) + '</div>' +
+        '<button class="btn-print" onclick="openWorksheet(DATA[\'' + currentAge + '\'].worksheets[' + wIdx + '].obsah, \'' + escH(w.nazev).replace(/'/g,"\\'") + '\')">📄 Otevřít a vytisknout</button>' +
+      '</div>' +
+    '</div>';
   }
+
+  var tabsHTML = tabDefs.map(function(t) {
+    var on = t.id === currentTab ? " on" : "";
+    return '<button class="tab' + on + '" id="tab-' + t.id + '" onclick="selectTab(\'' + t.id + '\')"><span class="ti">' + t.icon + '</span><span>' + t.label + '</span></button>';
+  }).join("");
 
   el.innerHTML =
     '<div class="fadein">' +
       '<div class="topic"><div class="lbl">Co dítě v tomto věku řeší</div><p>' + escH(d.co_resi) + '</p></div>' +
       '<div class="tabs">' + tabsHTML + '</div>' +
-      '<div id="p-jak" class="panel' + (currentTab==="jak"?" on":"") + '">' + vetaHTML + '</div>' +
-      '<div id="p-pozor" class="panel' + (currentTab==="pozor"?" on":"") + '">' +
-        '<div class="pozor"><div class="pozor-h"><span>⚠️</span><div class="lbl">Na co si dát pozor</div></div><p>' + escH(d.pozor) + '</p></div>' +
-      '</div>' +
-      '<div id="p-knihy" class="panel' + (currentTab==="knihy"?" on":"") + '">' + knihyHTML + '</div>' +
-      '<div id="p-list" class="panel' + (currentTab==="list"?" on":"") + '">' +
-        '<div class="listcard"><div class="lbl">Pracovní list pro toto věkové pásmo</div><p>' + escH(d.pracovni_list) + '</p>' +
-        '<div class="list-note">💡 Pracovní listy jsou dostupné u lektorky besedy nebo v tištěném setu po skončení programu.</div></div>' +
-      '</div>' +
+      '<div id="p-situace" class="panel' + (currentTab==="situace"?" on":"") + '">' + sitHTML + '</div>' +
+      '<div id="p-pozor"   class="panel' + (currentTab==="pozor"  ?" on":"") + '">' + pozorHTML + '</div>' +
+      '<div id="p-knihy"   class="panel' + (currentTab==="knihy"  ?" on":"") + '">' + knihyHTML + '</div>' +
+      '<div id="p-listy"   class="panel' + (currentTab==="listy"  ?" on":"") + '">' + listyHTML + '</div>' +
       '<div class="quote"><div class="lbl">Zapamatuj si</div><p>Na otázku dítěte není špatná odpověď. Horší než nedokonalá odpověď je ticho.</p></div>' +
     '</div>';
 
-  // Scroll to content
-  el.scrollIntoView({ behavior: "smooth", block: "start" });
+  el.scrollIntoView({ behavior:"smooth", block:"start" });
 }
 
-function escH(s) {
-  return String(s)
-    .replace(/&/g,"&amp;")
-    .replace(/</g,"&lt;")
-    .replace(/>/g,"&gt;")
-    .replace(/"/g,"&quot;");
-}
-
-// Run
 init();
 
-// Service worker
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", function() {
     navigator.serviceWorker.register("sw.js").catch(function(){});
